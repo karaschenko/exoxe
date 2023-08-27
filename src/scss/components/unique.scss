@@ -1,0 +1,95 @@
+$vertical-space: 8 * $base-space;
+
+$exo-image-width: 284px;
+$exo-image-height: 304px;
+
+.unique {
+    background: $black-color;
+    color: $white-color;
+
+    &-content {
+        &-logo {
+            margin-bottom: $vertical-space;
+
+            @media (max-width: $tablet-breakpoint) {
+                width: 170px;
+                height: 30px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .unique__title {
+            margin-bottom: $vertical-space;
+            color: $primary-color;
+
+            @media (max-width: $tablet-breakpoint) {
+                margin-bottom: 16px;
+            }
+        }
+
+        .unique-list {
+            margin-top: $vertical-space;
+            padding: 0;
+
+            @media (max-width: $tablet-breakpoint) {
+                margin-top: 16px;
+            }
+
+            &__item {
+                display: flex;
+                align-items: center;
+                margin-bottom:  2 * $base-space;
+                font-variant-numeric: lining-nums proportional-nums;
+
+                span {
+                    margin-left: 2 * $base-space;
+                }
+
+                b {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+
+    &-media {
+        padding-top: 2 * $base-space;
+        position: relative;
+        display: flex;
+
+        &__static {
+            margin-left: auto;
+            position: relative;
+            align-self: baseline;
+        }
+
+        &__animate-image {
+            width: $exo-image-width;
+            height: $exo-image-height;
+            position: absolute;
+            bottom: - calc($exo-image-height / 2);
+            left: - calc($exo-image-width / 2);
+
+            @media(max-width: $tablet-breakpoint) {
+                width: 140px;
+                height: 150px;
+                bottom: auto;
+                left: auto;
+                top: -70px;
+                right: 0;
+            }
+        }
+    }
+
+    @media (max-width: $tablet-breakpoint) {
+        padding: 32px 0;
+
+        .container  {
+            padding: 0;
+        }
+
+        .unique-content {
+            padding: 0 16px;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    max-width: 1528px;
+    width: 100%;
+    margin: 0 auto; 
+    gap: 30px;
+
+    @media (max-width: $tablet-breakpoint) {
+        max-width: 980px;
+        padding: 0 32px;
+    }
+    @media (max-width: $mobile-breakpoint) {
+        max-width: 100%;
+        padding: 0 16px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.col-6 {
+    width: 50%;
+
+    @media (max-width: $mobile-breakpoint) {
+        width: 100%;
+    }
+
+}
+
+@media (min-width: $tablet-breakpoint) {
+    .hidden-desktop {
+        display: none !important;
+    }
+}
+
+@media (max-width: $tablet-breakpoint) {
+    .hidden-tablet {
+        display: none !important;
+    }
+}
+
+@media (max-width: $mobile-breakpoint) {
+    .hidden-mobile {
+        display: none !important;
+    }
+}
+

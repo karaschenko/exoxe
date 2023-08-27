@@ -1,0 +1,23 @@
+.advantages {
+    color: $white-color;
+    background: 
+        linear-gradient(90deg, #E88597 7.29%, rgba(232, 133, 151, 0.80) 60.88%, rgba(255, 255, 255, 0.00) 100%),
+        url('../media/advantages-bg.png') no-repeat bottom;
+
+    @media(max-width: $tablet-breakpoint) {
+        background: $primary-color;
+    }
+
+
+    &__title {
+        margin-bottom: 5 * $base-space;
+
+        @media(max-width: $tablet-breakpoint) {
+            margin-bottom: 32px;
+        }
+    }
+    &-list {
+        list-style-position: inside;
+        padding: 0;
+    }
+}

@@ -1,0 +1,38 @@
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &__title {
+        color: $primary-color;
+    }
+
+    .ui_link {
+        gap: 12px;
+    }
+
+    &-social {
+        display: flex;
+        gap: 12px;
+
+        &__item {
+            display: flex;
+            width: 48px;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+
+            svg {
+                opacity: 1;
+            }
+
+            &:hover svg path {
+                stroke: $primary-color;
+                fill: $primary-color;
+            }
+        }
+    }
+}

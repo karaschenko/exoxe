@@ -1,0 +1,160 @@
+
+
+.ui {
+//typography
+
+    &_body {
+        //styleName: Body-regular;
+        font-family: Raleway;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: 0em;
+        text-align: left;
+        font-variant-numeric: lining-nums proportional-nums;
+        position: relative;
+
+        & b {
+            font-weight: 700;
+        }
+
+        @media (max-width: $tablet-breakpoint) {
+            font-size: 20px;
+            line-height: 28px;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        @media (max-width: $mobile-breakpoint) {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    &_h1 {
+        text-align: center;
+        font-family: Raleway;
+        font-size: 96px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100px; /* 104.167% */
+        text-transform: uppercase;
+
+        @media (max-width: $tablet-breakpoint) {
+            font-size: 64px;
+            line-height: 72px;
+        }
+    }
+
+    &_h2 {
+        //styleName: H2;
+        font-family: Raleway;
+        font-size: 64px;
+        font-weight: 400;
+        line-height: 80px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        @media (max-width: $tablet-breakpoint) {
+            font-size: 50px;
+            line-height: 68px;
+        }
+
+        @media (max-width: $mobile-breakpoint) {
+            font-size: 32px;
+            line-height: 40px;
+        }
+    }
+
+    &_h3 {
+        //styleName: H3;
+        font-family: Raleway;
+        font-size: 56px;
+        font-weight: 300;
+        line-height: 60px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        @media (max-width: $tablet-breakpoint) {
+            font-size: 32px;
+            line-height: 40px;
+        }
+
+        @media (max-width: $mobile-breakpoint) {
+            font-size: 26px;
+            line-height: 32px;
+        }
+    }
+
+    &_h4 {
+        //styleName: H4;
+        font-family: Raleway;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 48px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        @media (max-width: $tablet-breakpoint) {
+            font-size: 26px;
+            line-height: 32px;
+        }
+
+        @media (max-width: $mobile-breakpoint) {
+            font-size: 20px;
+            line-height: 26px;
+        }
+
+    }
+
+    &_link {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            color: $primary-color
+        }
+    }
+
+    // basics
+    &_section {
+        padding: 12 * $base-space 0;
+
+        @media(max-width: $tablet-breakpoint) {
+            padding: 32px 0;
+        }
+    }
+
+    &_button {
+        border: 1px solid $primary-color;
+        background: $primary-color;
+        color: $white-color;
+        padding: 22px 24px;
+        border-radius: 6 * $base-space;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            background: #F899AA;
+            border-color: #F899AA;
+            color: $white-color;
+        }
+
+        &:active {
+            background: #DD647A;
+            border-color: #DD647A;
+            color: $white-color;
+        }
+
+        @media (max-width: $tablet-breakpoint) {
+            padding: 16px 20px;
+            max-width: 100%;
+        }
+    }
+
+
+}

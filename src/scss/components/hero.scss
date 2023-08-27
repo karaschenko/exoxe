@@ -1,0 +1,42 @@
+.hero {
+    min-height: calc(100vh - $header-height);
+    width: 100vw;
+    position: relative;
+
+    &-video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .mute-button {
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        top: 100px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 0;
+            background: #fff;
+            rotate: 30deg;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 38%;
+            transition: height, 0.15s ease-out;
+        }
+
+        &.volume-up::after {
+            height: 30px;
+        }
+    }
+}

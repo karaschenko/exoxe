@@ -1,0 +1,39 @@
+.statistic {
+    padding: 43px;
+    color: $black-color;
+
+    @media(max-width: $tablet-breakpoint) {
+        padding: 32px 0;
+    }
+
+    @media(max-width: $mobile-breakpoint) {
+        padding: 24px 0;
+    }
+
+    &-list {
+        justify-content: space-between;
+
+        &__item {
+            display: flex;
+            align-items: center;
+
+            .statistic-number {
+                font-size: 96px;
+                font-weight: 600;
+                color: $primary-color;
+                margin-right: 3 * $base-space;
+
+                @media(max-width: $tablet-breakpoint) {
+                    font-size: 64px;
+                    line-height: 72px;
+                }
+            }
+        }
+
+        .separator {
+            width: 1px;
+            height: 94px;
+            background: $black-color;
+        }
+    }
+}

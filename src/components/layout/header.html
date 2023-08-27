@@ -1,0 +1,48 @@
+<header class="header" id="header">
+   <div class="container">
+    <button class="header__menu-switch hidden-desktop">
+        <div class="menu-show">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3 7H21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M3 12H21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M3 17H21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="menu-hide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.57 5.92993L3.5 11.9999L9.57 18.0699" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.4999 12H3.66992" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </button>
+     <a href="#header" class="header-logo">
+        <img src="media/logo.svg" alt="exoxe logo">
+    </a>
+    <nav class="header-nav">
+        <ul class="header-menu hidden-tablet" role="list">
+            @@include('./menu-items.html')
+        </ul>
+       <div class="language-switcher">
+            <label class="language-switcher__option">
+                <input type="radio" name="language" value="ua" checked class="language-switcher__input">
+                <span class="language-switcher__text">укр</span>
+            </label>
+            <label class="language-switcher__option">
+                <input type="radio" name="language" value="eng" class="language-switcher__input">
+                <span class="language-switcher__text">eng</span>
+            </label>
+        </div>
+    </nav>
+   </div>
+</header>
+
+<div class="mobile-menu hidden-desktop">
+    <ul class="header-menu" role="list">
+        @@include('./menu-items.html')
+        
+    </ul>
+   @@include('../contacts.html')
+</div>
+
+
+

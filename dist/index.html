@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Exoxe</title>
+</head>
+<body class="ui_body">
+   <header class="header" id="header">
+   <div class="container">
+    <button class="header__menu-switch hidden-desktop">
+        <div class="menu-show">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3 7H21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M3 12H21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M3 17H21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="menu-hide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.57 5.92993L3.5 11.9999L9.57 18.0699" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.4999 12H3.66992" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </button>
+     <a href="#header" class="header-logo">
+        <img src="media/logo.svg" alt="exoxe logo">
+    </a>
+    <nav class="header-nav">
+        <ul class="header-menu hidden-tablet" role="list">
+            <li class="header-menu__item ui_link"><a href="#about">Про екзосоми</a></li>
+<li class="header-menu__item ui_link"><a href="#unique">Унікальність</a></li>
+<li class="header-menu__item ui_link"><a href="#flacons">Склад</a></li>
+<li class="header-menu__item ui_link"><a href="#protocol">Протокол</a></li>
+<li class="header-menu__item ui_link"><a href="#order">Замовити</a></li>
+<li class="header-menu__item ui_link"><a href="#contacts">Контакти</a></li>
+        </ul>
+       <div class="language-switcher">
+            <label class="language-switcher__option">
+                <input type="radio" name="language" value="ua" checked class="language-switcher__input">
+                <span class="language-switcher__text">укр</span>
+            </label>
+            <label class="language-switcher__option">
+                <input type="radio" name="language" value="eng" class="language-switcher__input">
+                <span class="language-switcher__text">eng</span>
+            </label>
+        </div>
+    </nav>
+   </div>
+</header>
+
+<div class="mobile-menu hidden-desktop">
+    <ul class="header-menu" role="list">
+        <li class="header-menu__item ui_link"><a href="#about">Про екзосоми</a></li>
+<li class="header-menu__item ui_link"><a href="#unique">Унікальність</a></li>
+<li class="header-menu__item ui_link"><a href="#flacons">Склад</a></li>
+<li class="header-menu__item ui_link"><a href="#protocol">Протокол</a></li>
+<li class="header-menu__item ui_link"><a href="#order">Замовити</a></li>
+<li class="header-menu__item ui_link"><a href="#contacts">Контакти</a></li>
+        
+    </ul>
+   <div class="contacts">
+    <div class="contacts__title">
+    Зв’язатися з нами:
+    </div>
+    <a href="tel:+38 (067) 880-77-00" class="ui_link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+        <path d="M18.5 9C18.5 8.4 18.03 7.48 17.33 6.73C16.69 6.04 15.84 5.5 15 5.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 9C22 5.13 18.87 2 15 2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        +38 (067) 880-77-00
+    </a>
+    <a href="mailto:info@emet.in.ua" class="ui_link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        info@emet.in.ua
+    </a>
+
+    <div class="contacts-social">
+        <a href="#" class="contacts-social__item fb">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.5628 1.00458L14.7856 1C11.6654 1 9.64903 3.12509 9.64903 6.41423V8.91055H6.85662C6.61532 8.91055 6.41992 9.1115 6.41992 9.35937V12.9763C6.41992 13.2241 6.61554 13.4249 6.85662 13.4249H9.64903V22.5514C9.64903 22.7993 9.84443 23 10.0857 23H13.729C13.9703 23 14.1657 22.799 14.1657 22.5514V13.4249H17.4307C17.672 13.4249 17.8674 13.2241 17.8674 12.9763L17.8688 9.35937C17.8688 9.24036 17.8226 9.12638 17.7409 9.04215C17.6591 8.95793 17.5477 8.91055 17.4318 8.91055H14.1657V6.79439C14.1657 5.77728 14.4017 5.26094 15.6915 5.26094L17.5624 5.26025C17.8035 5.26025 17.9989 5.0593 17.9989 4.81166V1.45317C17.9989 1.20576 17.8037 1.00504 17.5628 1.00458Z" fill="white"/>
+            </svg>
+
+        </a>
+        <a href="#" class="contacts-social__item inst">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.9804 7.88005C21.9336 6.81738 21.7617 6.0868 21.5156 5.45374C21.2616 4.78176 20.8709 4.18014 20.359 3.68002C19.8589 3.1721 19.2533 2.77743 18.5891 2.52745C17.9524 2.28127 17.2256 2.10943 16.163 2.06257C15.0923 2.01175 14.7525 2 12.0371 2C9.32172 2 8.98185 2.01175 7.9152 2.05861C6.85253 2.10546 6.12195 2.27746 5.48904 2.52348C4.81692 2.77743 4.2153 3.16814 3.71517 3.68002C3.20726 4.18014 2.81274 4.78573 2.5626 5.44992C2.31643 6.0868 2.14458 6.81341 2.09773 7.87609C2.04691 8.9467 2.03516 9.28658 2.03516 12.002C2.03516 14.7173 2.04691 15.0572 2.09376 16.1239C2.14061 17.1865 2.31261 17.9171 2.55879 18.5502C2.81274 19.2221 3.20726 19.8238 3.71517 20.3239C4.2153 20.8318 4.82088 21.2265 5.48507 21.4765C6.12195 21.7226 6.84856 21.8945 7.91139 21.9413C8.97788 21.9883 9.31791 21.9999 12.0333 21.9999C14.7486 21.9999 15.0885 21.9883 16.1552 21.9413C17.2178 21.8945 17.9484 21.7226 18.5813 21.4765C19.9254 20.9568 20.9881 19.8941 21.5078 18.5502C21.7538 17.9133 21.9258 17.1865 21.9726 16.1239C22.0195 15.0572 22.0312 14.7173 22.0312 12.002C22.0312 9.28658 22.0273 8.9467 21.9804 7.88005ZM20.1794 16.0457C20.1364 17.0225 19.9723 17.5499 19.8355 17.9015C19.4995 18.7728 18.808 19.4643 17.9367 19.8004C17.585 19.9372 17.0538 20.1012 16.0808 20.1441C15.026 20.1911 14.7096 20.2027 12.0411 20.2027C9.37255 20.2027 9.0522 20.1911 8.00113 20.1441C7.02437 20.1012 6.49693 19.9372 6.1453 19.8004C5.71171 19.6402 5.31704 19.3862 4.9967 19.0541C4.6646 18.7298 4.41065 18.3391 4.2504 17.9055C4.11365 17.5539 3.94959 17.0225 3.9067 16.0497C3.8597 14.9948 3.8481 14.6783 3.8481 12.0097C3.8481 9.34122 3.8597 9.02087 3.9067 7.96995C3.94959 6.99319 4.11365 6.46575 4.2504 6.11412C4.41065 5.68038 4.6646 5.28586 5.00067 4.96536C5.32483 4.63327 5.71553 4.37931 6.14927 4.21921C6.5009 4.08247 7.03231 3.9184 8.00509 3.87537C9.05999 3.82851 9.37652 3.81676 12.0449 3.81676C14.7174 3.81676 15.0337 3.82851 16.0848 3.87537C17.0616 3.9184 17.589 4.08247 17.9406 4.21921C18.3742 4.37931 18.7689 4.63327 19.0892 4.96536C19.4213 5.28967 19.6753 5.68038 19.8355 6.11412C19.9723 6.46575 20.1364 6.99701 20.1794 7.96995C20.2262 9.02484 20.238 9.34122 20.238 12.0097C20.238 14.6783 20.2262 14.9908 20.1794 16.0457Z" fill="white"/>
+            <path d="M12.0371 6.86423C9.20069 6.86423 6.89937 9.1654 6.89937 12.002C6.89937 14.8385 9.20069 17.1397 12.0371 17.1397C14.8736 17.1397 17.1748 14.8385 17.1748 12.002C17.1748 9.1654 14.8736 6.86423 12.0371 6.86423ZM12.0371 15.3347C10.197 15.3347 8.70438 13.8422 8.70438 12.002C8.70438 10.1617 10.197 8.66924 12.0371 8.66924C13.8774 8.66924 15.3698 10.1617 15.3698 12.002C15.3698 13.8422 13.8774 15.3347 12.0371 15.3347Z" fill="white"/>
+            <path d="M18.5776 6.6611C18.5776 7.32346 18.0405 7.86053 17.378 7.86053C16.7156 7.86053 16.1785 7.32346 16.1785 6.6611C16.1785 5.99858 16.7156 5.46167 17.378 5.46167C18.0405 5.46167 18.5776 5.99858 18.5776 6.6611Z" fill="white"/>
+            </svg>
+        </a>
+        <a href="#" class="contacts-social__item tg">
+            <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7493 3.33042C13.4206 4.31934 8.76667 6.36615 1.78736 9.47086C0.654033 9.93102 0.0603449 10.3812 0.00629878 10.8214C-0.0850406 11.5653 0.827363 11.8582 2.06982 12.2571C2.23883 12.3114 2.41394 12.3676 2.59347 12.4272C3.81586 12.8329 5.46019 13.3075 6.31501 13.3264C7.09041 13.3435 7.95585 13.0171 8.91132 12.3472C15.4323 7.85279 18.7985 5.5811 19.0098 5.53213C19.1589 5.49758 19.3655 5.45414 19.5055 5.58118C19.6455 5.70822 19.6317 5.94881 19.6169 6.01335C19.5265 6.40678 15.945 9.8065 14.0915 11.5659C13.5137 12.1143 13.1039 12.5034 13.0201 12.5922C12.8324 12.7913 12.6411 12.9796 12.4573 13.1605C11.3216 14.2783 10.47 15.1165 12.5044 16.4853C13.4821 17.1431 14.2644 17.6871 15.0449 18.2298C15.8972 18.8224 16.7473 19.4135 17.8473 20.1497C18.1275 20.3373 18.3952 20.5321 18.6558 20.7218C19.6478 21.4439 20.5389 22.0925 21.6399 21.9891C22.2796 21.929 22.9404 21.3148 23.276 19.483C24.0692 15.1538 25.6281 5.7739 25.9884 1.90865C26.02 1.57001 25.9803 1.13661 25.9484 0.946358C25.9165 0.756105 25.8499 0.485037 25.6077 0.284372C25.3208 0.0467249 24.878 -0.00338923 24.68 0.000172664C23.7795 0.0163687 22.398 0.506852 15.7493 3.33042Z" fill="white"/>
+            </svg>
+        </a>
+        <a href="#" class="contacts-social__item youtube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3903 4.11407C22.4182 4.39093 23.2288 5.20135 23.5055 6.22948C24.0197 8.1074 23.9999 12.0218 23.9999 12.0218C23.9999 12.0218 23.9999 15.9163 23.5057 17.7944C23.2288 18.8223 22.4184 19.6329 21.3903 19.9096C19.5122 20.404 12 20.404 12 20.404C12 20.404 4.50731 20.404 2.60961 19.89C1.58148 19.6131 0.771054 18.8025 0.4942 17.7746C0 15.9163 0 12.002 0 12.002C0 12.002 0 8.1074 0.4942 6.22948C0.770871 5.20153 1.60125 4.37115 2.60943 4.09448C4.48753 3.6001 11.9998 3.6001 11.9998 3.6001C11.9998 3.6001 19.5122 3.6001 21.3903 4.11407ZM15.8549 12.0021L9.60788 15.6001V8.40404L15.8549 12.0021Z" fill="white"/>
+            </svg>
+
+        </a>
+    </div>
+</div>
+</div>
+
+
+
+
+   <section class="hero">
+  <video class="hero-video hidden-tablet" autoplay loop muted playsinline>
+    <!-- Desktop video -->
+    <source src="media/video/hero-video-desktop.mp4" type="video/mp4" media="(min-width: 1024px)">
+    Your browser does not support the video tag.
+  </video>
+
+  <video class="hero-video hidden-desktop" autoplay loop muted playsinline>
+    <!-- Desktop video -->
+    <source src="media/video/hero-video-mobile.mp4" type="video/mp4" media="(max-width: 1024px)">
+    Your browser does not support the video tag.
+  </video>
+  <div class="container">
+    <button class="mute-button">
+        <img src="media/icons/volume-up.svg" alt="Volume Up"> 
+    </button>
+  </div>
+</section>
+   <section class="what-is" id="about" >
+    <div class="container">
+        <div class="what-is__image content-block">
+            <img src="media/animated-exosome.png" class="animated-exosome" alt="exosome">
+            <div class="what-is__image-title">
+                Exosomes
+            </div>
+        </div>
+        <div class="what-is__content content-block">
+            <h2 class="ui_h2 content-block">
+                ЩО ТАКЕ ЕКЗОСОМИ?
+            </h2>
+            <p class="content-block">
+                Екзосоми – маленькі мембранні везикули (наночастки діаметром 
+                30-200 нм), які є ключовими агентами передачі сигналів між клітинами в організмі людини.
+            </p>
+            <p class="content-block">
+                Вони містять різні біологічно активні молекули, такі як РНК, протеїни, ліпіди, рецептори, фактори росту, які таргетовано доставляють до клітин-реципієнтів. Таким чином, відбувається регуляція мікрооточення клітин, регенерація та модуляція їх функцій.
+            </p>
+        </div>
+    </div>
+</section>
+   <section class="unique ui_section">
+    <div class="container">
+        <div class="unique-content col-6">
+            <img src="media/unique-logo.png" alt="exoxe" class="unique-content-logo">
+            <h2 class="unique__title ui_h2">
+                ЗМІНЮЄ СТАНДАРТИ ЕКЗОСОМ!
+            </h2>
+            <ul class="unique-list" role="list">
+                <li class="unique-list__item ss">
+                    <img src="media/icons/unique/list-icon-1.svg" alt="unique-icon">
+                    <span><b>6 млрд</b> чистих екзосом </span>
+                </li>
+                <li class="unique-list__item">
+                    <img src="media/icons/unique/list-icon-2.svg" alt="unique-icon">
+                    <span>Eкзосоми з мезенхімальних стовбурових клітин <b>амніотичної рідини</b></span>
+                </li>
+                <li class="unique-list__item">
+                    <img src="media/icons/unique/list-icon-3.svg" alt="unique-icon">
+                    <span>Регенерація тканин в <b>2,5 рази</b> швидше</span>
+                </li>
+                <li class="unique-list__item">
+                    <img src="media/icons/unique/list-icon-4.svg" alt="unique-icon">
+                    <span>Зберігаються при <b>кімнатній</b> температурі</span>
+                </li>
+                <li class="unique-list__item">
+                    <img src="media/icons/unique/list-icon-5.svg" alt="unique-icon">
+                    <span>Унікальна технологія<b>ІОЕ</b></span>
+                </li>
+            </ul>
+        </div>
+        <div class="unique-media col-6">
+            <div class="unique-media__static">
+                <img src="media/unique-women.png" alt="women">
+                <img src="media/unique-exosome.png" alt="women" class="unique-media__animate-image">
+            </div>
+        </div>
+    </div>
+</section>
+   <section class="statistic">
+    <div class="statistic-list container">
+        <div class="statistic-list__item">
+            <div class="statistic-number">34</div>
+            <div class="statistic-text">країни світу</div>
+        </div>
+        <div class="separator hidden-tablet"></div>
+        <div class="statistic-list__item">
+            <div class="statistic-number">26</div>
+            <div class="statistic-text">
+                патентів на
+                технологічні
+                процеси
+            </div>
+        </div>
+        <div class="separator hidden-tablet"></div>
+        <div class="statistic-list__item">
+            <div class="statistic-number">5</div>
+            <div class="statistic-text">
+                міжнародних
+                патентів
+            </div>
+        </div>
+    </div>
+
+</section>
+   <section id="unique" class="advantages ui_section">
+    <div class="container">
+       <div class="col-6">
+            <h2 class="advantages__title ui_h2">
+                В ЧОМУ <br/> УНІКАЛЬНІСТЬ <br/> EXOXE™? 
+            </h2>
+            <ul class="advantages-list">
+                <li class="advantages-list__item">Доступні та безпечні</li>
+                <li class="advantages-list__item">Максимально насичені біоактивними молекулами</li>
+                <li class="advantages-list__item">Поліпшують циркуляцію крові, формують нові судини</li>
+                <li class="advantages-list__item">Прискорюють проліферацію та рух фібробластів в шкірі</li>
+                <li class="advantages-list__item">Мають посилений антиоксидантний ефект</li>
+                <li class="advantages-list__item">Мають високий рівень інсуліноподібного фактора росту</li>
+                <li class="advantages-list__item">Мають меншу імуногенність (в порівнянні з іншими екзосомами)</li>
+                <li class="advantages-list__item">Не викликають алергічних реакцій</li>
+                <li class="advantages-list__item">Не викликають онкологію</li>
+                <li class="advantages-list__item">Запобігають виникненню етичних суперечливих питань</li>
+            </ul>
+        </div>
+    </div>
+    <div class="advantages__image hidden-desktop">
+        <img src="media/advantages-bg.png" alt="advantages">
+    </div>
+</section>
+   <section class="technologie ui_section" id="flacons">
+    <div class="container">
+        <div class="technologie__content">
+            <h3 class="technologie__title ui_h3">Революційна технологія IOE: </h3>
+            <div class="technologie__text">
+                Стимулює життєдіяльність мезенхімальних клітин,
+                 спонукаючи їх до виділення більшої кількості
+                  регенеративних факторів (>70 факторів росту та >1800 пептидів),
+                  що дозволяє отримати велику кількість саме чистих екзосом високої
+                   якості (з великою кількістю регенеративних факторів).
+                    Таким чином, концентровані чисті ліофілізовані екзосоми
+                забезпечують комплексний  вплив на шкіру, таргетовано доставляючи
+                    біоактивні молекули тим клітинам, яким це потрібно. 
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="marquee hidden-tablet">
+   <div class="marquee__content">
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+    </div>
+    <div aria-hidden="true" class="marquee__content">
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+        <b>TM Exoxe</b>
+        <span>
+            ЗМІНЮЄ СТАНДАРТИ
+            ЕКЗОСОМ
+        </span>
+    </div>
+</section>
+
+<section class="flacons ui_section">
+    <h2 class="flacons__title ui_h2">
+            СКЛАД ПРЕПАРАТА EXOXE™:
+    </h2>
+    <div class="container">
+        <div class="flacons-item">
+            <div class="flacons__img">
+                <img src="media/flacon-1.png" alt="flacon">
+            </div>
+            <div class="flacons__content">
+                <h4 class="flacons-item__title ui_h4">
+                ФЛАКОН 1
+                </h4>
+                <div class="flacon-item__desc">
+                    Порошок ліофілізованих екзосом 
+                    (6 млрд.) Pure Exo – 50 мг
+                </div>
+                <ul class="flacon-item__list">
+                    <li class="flacon-item__list-item">Гідролізат колагену (886,000PPM) – 88.6%</li>
+                    <li class="flacon-item__list-item">Колаген (100.000) – 10.0%</li>
+                    <li class="flacon-item__list-item">Гіалуронат натрію – 0.9%</li>
+                    <li class="flacon-item__list-item">Трегалоза – 0.5%</li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="flacon-separator">
+            <img src="media/icons/separator.svg" alt="separator">
+        </div>
+        <div class="flacons-item">
+            <div class="flacons__img">
+                <img src="media/flacon-2.png" alt="flacon">
+            </div>
+            <div class="flacons__content">
+                <h4 class="flacons-item__title ui_h4">
+                ФЛАКОН 2
+                </h4>
+                <div class="flacon-item__desc">
+                    Активатор – 5 мл
+                </div>
+                <ul class="flacon-item__list">
+                    <li class="flacon-item__list-item">Вода – 99.0% </li>
+                    <li class="flacon-item__list-item">Гіалуронат натрія – 1.0%</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+</section>
+   <section class="ui_section protocol" id="protocol">
+    <div class="container">
+        <div class="accordion">
+            <div class="accordion-item">
+                <input type="checkbox" id="section1" class="accordion-input">
+                <label for="section1" class="accordion-header ui_h3">
+                    <span class="accordion-arrow"></span> Механізм дії
+                </label>
+                <div class="accordion-content">
+                    <ul class="accordion-content-list">
+                        <li>Інгібіція мРНК запальних цитокинів (IgE, IgE, IL-4,31,23, TNF-a, IFN-r)</li>
+                        <li>Інгібіція еластази та колагенази</li>
+                        <li>Активація продукції колагену та еластину (сигнальний шлях TGF- β, транспорт COL1A1 mRNA у клітини)</li>
+                        <li>Покращення циркуляції крові шляхом формування нових судин (VEGF)</li>
+                        <li>Ремоделювання позаклітинного матриксу (експресія ферменту LOXL2 сприяє «зшиванню» колагену та еластину, дефіцит цього ферменту викликає слабкість сполучної тканини)</li>
+                        <li>Інгібіція меланогенезу (інгібіція факторів меланогенезу -Tir, Tyrp1, Mitf, Dct)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <input type="checkbox" id="section2" class="accordion-input">
+                <label for="section2" class="accordion-header ui_h3">
+                    <span class="accordion-arrow"></span> Показання
+                </label>
+                <div class="accordion-content">
+                    <ul class="accordion-content-list">
+                        <li>Інгібіція мРНК запальних цитокинів (IgE, IgE, IL-4,31,23, TNF-a, IFN-r)</li>
+                        <li>Інгібіція еластази та колагенази</li>
+                        <li>Активація продукції колагену та еластину (сигнальний шлях TGF- β, транспорт COL1A1 mRNA у клітини)</li>
+                        <li>Покращення циркуляції крові шляхом формування нових судин (VEGF)</li>
+                        <li>Ремоделювання позаклітинного матриксу (експресія ферменту LOXL2 сприяє «зшиванню» колагену та еластину, дефіцит цього ферменту викликає слабкість сполучної тканини)</li>
+                        <li>Інгібіція меланогенезу (інгібіція факторів меланогенезу -Tir, Tyrp1, Mitf, Dct)</li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="accordion-item">
+                <input type="checkbox" id="section3" class="accordion-input">
+                <label for="section3" class="accordion-header ui_h3">
+                    <span class="accordion-arrow"></span> Протипоказання
+                </label>
+                <div class="accordion-content">
+                    <ul class="accordion-content-list">
+                        <li>Інгібіція мРНК запальних цитокинів (IgE, IgE, IL-4,31,23, TNF-a, IFN-r)</li>
+                        <li>Інгібіція еластази та колагенази</li>
+                        <li>Активація продукції колагену та еластину (сигнальний шлях TGF- β, транспорт COL1A1 mRNA у клітини)</li>
+                        <li>Покращення циркуляції крові шляхом формування нових судин (VEGF)</li>
+                        <li>Ремоделювання позаклітинного матриксу (експресія ферменту LOXL2 сприяє «зшиванню» колагену та еластину, дефіцит цього ферменту викликає слабкість сполучної тканини)</li>
+                        <li>Інгібіція меланогенезу (інгібіція факторів меланогенезу -Tir, Tyrp1, Mitf, Dct)</li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="accordion-item">
+                <input type="checkbox" id="section4" class="accordion-input">
+                <label for="section4" class="accordion-header ui_h3">
+                    <span class="accordion-arrow"></span> Спосіб використання
+                </label>
+                <div class="accordion-content">
+                    <ul class="accordion-content-list">
+                        <li>Інгібіція мРНК запальних цитокинів (IgE, IgE, IL-4,31,23, TNF-a, IFN-r)</li>
+                        <li>Інгібіція еластази та колагенази</li>
+                        <li>Активація продукції колагену та еластину (сигнальний шлях TGF- β, транспорт COL1A1 mRNA у клітини)</li>
+                        <li>Покращення циркуляції крові шляхом формування нових судин (VEGF)</li>
+                        <li>Ремоделювання позаклітинного матриксу (експресія ферменту LOXL2 сприяє «зшиванню» колагену та еластину, дефіцит цього ферменту викликає слабкість сполучної тканини)</li>
+                        <li>Інгібіція меланогенезу (інгібіція факторів меланогенезу -Tir, Tyrp1, Mitf, Dct)</li>
+                    </ul>
+
+                </div>
+            </div>
+             <div class="accordion-item">
+                <input type="checkbox" id="section5" class="accordion-input">
+                <label for="section5" class="accordion-header ui_h3">
+                    <span class="accordion-arrow"></span> Протокол застосування
+                </label>
+                <div class="accordion-content">
+                    <ul class="accordion-content-list">
+                        <li>Інгібіція мРНК запальних цитокинів (IgE, IgE, IL-4,31,23, TNF-a, IFN-r)</li>
+                        <li>Інгібіція еластази та колагенази</li>
+                        <li>Активація продукції колагену та еластину (сигнальний шлях TGF- β, транспорт COL1A1 mRNA у клітини)</li>
+                        <li>Покращення циркуляції крові шляхом формування нових судин (VEGF)</li>
+                        <li>Ремоделювання позаклітинного матриксу (експресія ферменту LOXL2 сприяє «зшиванню» колагену та еластину, дефіцит цього ферменту викликає слабкість сполучної тканини)</li>
+                        <li>Інгібіція меланогенезу (інгібіція факторів меланогенезу -Tir, Tyrp1, Mitf, Dct)</li>
+                    </ul>
+
+                </div>
+            </div>
+             <div class="accordion-item">
+                <input type="checkbox" id="section6" class="accordion-input">
+                <label for="section6" class="accordion-header ui_h3">
+                    <span class="accordion-arrow"></span> Умови зберігання
+                </label>
+                <div class="accordion-content">
+                    <ul class="accordion-content-list">
+                        <li>Інгібіція мРНК запальних цитокинів (IgE, IgE, IL-4,31,23, TNF-a, IFN-r)</li>
+                        <li>Інгібіція еластази та колагенази</li>
+                        <li>Активація продукції колагену та еластину (сигнальний шлях TGF- β, транспорт COL1A1 mRNA у клітини)</li>
+                        <li>Покращення циркуляції крові шляхом формування нових судин (VEGF)</li>
+                        <li>Ремоделювання позаклітинного матриксу (експресія ферменту LOXL2 сприяє «зшиванню» колагену та еластину, дефіцит цього ферменту викликає слабкість сполучної тканини)</li>
+                        <li>Інгібіція меланогенезу (інгібіція факторів меланогенезу -Tir, Tyrp1, Mitf, Dct)</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="protocol-buttons">
+            <a href="#" class="ui_button protocol-button download">
+                <svg class="protocol-button__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 14.6667V22.6667L14.6667 20.0001" stroke="#E88597" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.0002 22.6667L9.3335 20" stroke="#E88597" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M29.3332 13.3334V20.0001C29.3332 26.6667 26.6665 29.3334 19.9998 29.3334H11.9998C5.33317 29.3334 2.6665 26.6667 2.6665 20.0001V12.0001C2.6665 5.33341 5.33317 2.66675 11.9998 2.66675H18.6665" stroke="#E88597" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M29.3332 13.3334H23.9998C19.9998 13.3334 18.6665 12.0001 18.6665 8.00008V2.66675L29.3332 13.3334Z" stroke="#E88597" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="protocol-button__text">
+                    Завантажити протокол
+                </span>
+            </a>
+            <a href="#" class="ui_button protocol-button download">
+                <svg class="protocol-button__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 14.6667V22.6667L14.6667 20.0001" stroke="#E88597" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.0002 22.6667L9.3335 20" stroke="#E88597" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M29.3332 13.3334V20.0001C29.3332 26.6667 26.6665 29.3334 19.9998 29.3334H11.9998C5.33317 29.3334 2.6665 26.6667 2.6665 20.0001V12.0001C2.6665 5.33341 5.33317 2.66675 11.9998 2.66675H18.6665" stroke="#E88597" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M29.3332 13.3334H23.9998C19.9998 13.3334 18.6665 12.0001 18.6665 8.00008V2.66675L29.3332 13.3334Z" stroke="#E88597" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="protocol-button__text">
+                    Завантажити буклет
+                </span>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<section class="ui_section results">
+    <h2 class="ui_h2 results__title">
+        Результат використання EXOXE™:   
+    </h2>
+    <div class="container results-list">
+        <div class="results-col col-6">
+            <div class="results-item">
+                <div class="results-item__num">1</div>
+                <div class="results-item__content">
+                    <h4 class="ui_h4 results-item__title">
+                        Регенерація тканин
+                        <span class="title__line"></span>
+                    </h4>
+                    <div class="results-item__text">
+                        Екзосоми перешкоджають дегенерації, 
+                        яка пов’язана зі старінням, підтримують тканини у
+                        здоровому стані та викликають потужний синтез колагену
+                    </div>
+                </div>
+            </div>
+            <div class="results-item">
+                <div class="results-item__num">2</div>
+                <div class="results-item__content">
+                    <h4 class="ui_h4 results-item__title">
+                        Модуляція запалення
+                        <span class="title__line"></span>
+                    </h4>
+                    <div class="results-item__text">
+                        Екзосоми можуть подавляти активацію та функцію імунних клітин, знижувати запалення й пошкодження тканин
+                    </div>
+                </div>
+            </div>
+            <div class="results-item">
+                <div class="results-item__num">3</div>
+                <div class="results-item__content">
+                    <h4 class="ui_h4 results-item__title">
+                        Захист від фотостаріння
+                        <span class="title__line"></span>
+                    </h4>
+                    <div class="results-item__text">
+                        Екзосоми перешкоджають дегенерації, 
+                        яка пов’язана зі старінням, підтримують тканини у
+                        здоровому стані та викликають потужний синтез колагену
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="results-col col-6">
+            <div class="results-item">
+                <div class="results-item__num">4</div>
+                <div class="results-item__content">
+                    <h4 class="ui_h4 results-item__title">
+                        Антиоксидантний  ефект
+                        <span class="title__line"></span>
+                    </h4>
+                    <div class="results-item__text">
+                        Екзосоми знижують рівень активних форм кисню (АФК)
+                        та регулюють життєвий цикл клітин, захищаючи їх
+                        від пошкоджень та старіння
+                    </div>
+                </div>
+            </div>
+            <div class="results-item">
+                <div class="results-item__num">5</div>
+                <div class="results-item__content">
+                    <h4 class="ui_h4 results-item__title">
+                        Ангіогенез
+                        <span class="title__line"></span>
+                    </h4>
+                    <div class="results-item__text">
+                        Екзосоми сприяють формуванню нових кровоносних судин, що призводить до поліпшення трофіки тканин
+                    </div>
+                </div>
+            </div>
+            <div class="results-item">
+                <div class="results-item__num">6</div>
+                <div class="results-item__content">
+                    <h4 class="ui_h4 results-item__title">
+                        Регуляція старіння клітин
+                        <span class="title__line"></span>
+                    </h4>
+                    <div class="results-item__text">
+                        Екзосоми підтримують клітини в молодому стані та сповільнюють зміни, пов’язані зі старінням
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ui_section master-class">
+    <div class="container">
+        <div class="col-6">
+            <h4 class="master-class__title ui_h4">
+                Подивитись майстер-клас <br> по екзосомам EXOXE™
+            </h4>
+            <div class="master-class__condition">
+                *потрібна реєстрация на платформі LMS
+            </div>
+        </div>
+        <div class="col-6">
+            <a href="#" class="ui_button" target="_blank">
+                <span>Дивитись відео</span>
+            </a>
+        </div>
+    </div>
+</section>
+   <section class="ui_section order" id="order">
+    <div class="container">
+        <div class="col-6">
+            <img src="media/order-img.png" alt="order-exoxe">
+        </div>
+        <div class="col-6">
+            <h2 class="ui_title order__title">
+                Замовити EXOXE™:
+            </h2>
+            <div class="order-content">
+                <b class="order-content__title">
+                    Склад:
+                </b>
+                <ul class="order-content__list">
+                    <li>
+                        Скляний флакон ліофілізованого порошку чистих екзосом з амніотичної рідини людини (6 млрд.) – 50 мг
+                    </li>
+                    <li>
+                       Скляний флакон стерильного розчину гіалуронової кислоти – 5 мл
+                    </li>
+                </ul>
+                <a href="#" class="ui_button" target="_blank"><span>Замовити</span></a> 
+            </div>
+        </div>
+    </div>
+</section>
+   <section class="ui_section order-form">
+    <div class="container">
+        <h2 class="order-form__title ui_h2">
+        Давайте працювати разом!
+        </h2>
+        <div class="order-form__desc">
+                Якщо ви косметолог, лікар або бажаєте продавати продукцію EXOXETM, залиште свої контакти:
+        </div>
+        <form onsubmit="return mockFormSubmit(event)" class="order-form__form">
+            <div class="input-container">
+                <input type="text" name="name" placeholder="Ваше імʼя"/>
+                <label for="name">Ваше імʼя</label>		
+            </div>
+            <div class="input-container">
+                <input type="text" name="phone" id="phoneInput" placeholder="Ваше телефон"/>
+                <label for="phone">Ваш телефон</label>		
+            </div>
+            <button class="ui_button" id="submitBtn">
+                Відправити заявку
+            </button>
+            <div class="response-message" style="display: none;">
+                Дякуємо, вашу заявку прийнято,
+                з вами зв’яжеться менеджер
+                для подальшої співпраці
+            </div>
+        </form>
+    </div>
+
+    
+
+    <script>
+        // mock form request - remove
+
+        function mockFormSubmit(event) {
+            event.preventDefault(); 
+            document.querySelector(".response-message").style.display = "block";
+
+            setTimeout(function() {
+                document.querySelector(".response-message").style.display = "none";
+            }, 2000); 
+        }
+    </script>
+    
+</section>
+   <footer class="footer" id="contacts">
+    <div class="container">
+        <div class="footer-column">
+            <a href="#header" class="footer-logo">
+                <img src="media/logo.svg" alt="exoxe logo">
+            </a>
+            <div class="footer-desc">
+                ©ТОВ “ТД “EMET” 2023. 
+                Ексклюзивний дистриб'ютор EXOXETM в Україні.
+                Усі права захищені.
+                Передрук, дублювання та цитування матеріалів заборонені (або з дозволу правовласника).
+            </div>
+        </div>
+        <div class="footer-column">
+            <div class="footer__title">
+                EXOXE™
+            </div>
+            <a href="#" class="ui_link">Про екзосоми</a>
+            <a href="#" class="ui_link">Унікальність</a>
+            <a href="#" class="ui_link">Склад</a>
+            <a href="#" class="ui_link">Протокол</a>
+        </div>
+        <div class="footer-column">
+            <a href="#" class="ui_link">Майстер-клас</a>
+            <a href="#" class="ui_link">Замовити</a>
+            <a href="#" class="ui_link">Контакти</a>
+            <a href="#" class="ui_link">Політика конфіденційності</a>
+        </div>
+        <div class="footer-column">
+           <div class="contacts">
+    <div class="contacts__title">
+    Зв’язатися з нами:
+    </div>
+    <a href="tel:+38 (067) 880-77-00" class="ui_link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+        <path d="M18.5 9C18.5 8.4 18.03 7.48 17.33 6.73C16.69 6.04 15.84 5.5 15 5.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 9C22 5.13 18.87 2 15 2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        +38 (067) 880-77-00
+    </a>
+    <a href="mailto:info@emet.in.ua" class="ui_link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        info@emet.in.ua
+    </a>
+
+    <div class="contacts-social">
+        <a href="#" class="contacts-social__item fb">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.5628 1.00458L14.7856 1C11.6654 1 9.64903 3.12509 9.64903 6.41423V8.91055H6.85662C6.61532 8.91055 6.41992 9.1115 6.41992 9.35937V12.9763C6.41992 13.2241 6.61554 13.4249 6.85662 13.4249H9.64903V22.5514C9.64903 22.7993 9.84443 23 10.0857 23H13.729C13.9703 23 14.1657 22.799 14.1657 22.5514V13.4249H17.4307C17.672 13.4249 17.8674 13.2241 17.8674 12.9763L17.8688 9.35937C17.8688 9.24036 17.8226 9.12638 17.7409 9.04215C17.6591 8.95793 17.5477 8.91055 17.4318 8.91055H14.1657V6.79439C14.1657 5.77728 14.4017 5.26094 15.6915 5.26094L17.5624 5.26025C17.8035 5.26025 17.9989 5.0593 17.9989 4.81166V1.45317C17.9989 1.20576 17.8037 1.00504 17.5628 1.00458Z" fill="white"/>
+            </svg>
+
+        </a>
+        <a href="#" class="contacts-social__item inst">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.9804 7.88005C21.9336 6.81738 21.7617 6.0868 21.5156 5.45374C21.2616 4.78176 20.8709 4.18014 20.359 3.68002C19.8589 3.1721 19.2533 2.77743 18.5891 2.52745C17.9524 2.28127 17.2256 2.10943 16.163 2.06257C15.0923 2.01175 14.7525 2 12.0371 2C9.32172 2 8.98185 2.01175 7.9152 2.05861C6.85253 2.10546 6.12195 2.27746 5.48904 2.52348C4.81692 2.77743 4.2153 3.16814 3.71517 3.68002C3.20726 4.18014 2.81274 4.78573 2.5626 5.44992C2.31643 6.0868 2.14458 6.81341 2.09773 7.87609C2.04691 8.9467 2.03516 9.28658 2.03516 12.002C2.03516 14.7173 2.04691 15.0572 2.09376 16.1239C2.14061 17.1865 2.31261 17.9171 2.55879 18.5502C2.81274 19.2221 3.20726 19.8238 3.71517 20.3239C4.2153 20.8318 4.82088 21.2265 5.48507 21.4765C6.12195 21.7226 6.84856 21.8945 7.91139 21.9413C8.97788 21.9883 9.31791 21.9999 12.0333 21.9999C14.7486 21.9999 15.0885 21.9883 16.1552 21.9413C17.2178 21.8945 17.9484 21.7226 18.5813 21.4765C19.9254 20.9568 20.9881 19.8941 21.5078 18.5502C21.7538 17.9133 21.9258 17.1865 21.9726 16.1239C22.0195 15.0572 22.0312 14.7173 22.0312 12.002C22.0312 9.28658 22.0273 8.9467 21.9804 7.88005ZM20.1794 16.0457C20.1364 17.0225 19.9723 17.5499 19.8355 17.9015C19.4995 18.7728 18.808 19.4643 17.9367 19.8004C17.585 19.9372 17.0538 20.1012 16.0808 20.1441C15.026 20.1911 14.7096 20.2027 12.0411 20.2027C9.37255 20.2027 9.0522 20.1911 8.00113 20.1441C7.02437 20.1012 6.49693 19.9372 6.1453 19.8004C5.71171 19.6402 5.31704 19.3862 4.9967 19.0541C4.6646 18.7298 4.41065 18.3391 4.2504 17.9055C4.11365 17.5539 3.94959 17.0225 3.9067 16.0497C3.8597 14.9948 3.8481 14.6783 3.8481 12.0097C3.8481 9.34122 3.8597 9.02087 3.9067 7.96995C3.94959 6.99319 4.11365 6.46575 4.2504 6.11412C4.41065 5.68038 4.6646 5.28586 5.00067 4.96536C5.32483 4.63327 5.71553 4.37931 6.14927 4.21921C6.5009 4.08247 7.03231 3.9184 8.00509 3.87537C9.05999 3.82851 9.37652 3.81676 12.0449 3.81676C14.7174 3.81676 15.0337 3.82851 16.0848 3.87537C17.0616 3.9184 17.589 4.08247 17.9406 4.21921C18.3742 4.37931 18.7689 4.63327 19.0892 4.96536C19.4213 5.28967 19.6753 5.68038 19.8355 6.11412C19.9723 6.46575 20.1364 6.99701 20.1794 7.96995C20.2262 9.02484 20.238 9.34122 20.238 12.0097C20.238 14.6783 20.2262 14.9908 20.1794 16.0457Z" fill="white"/>
+            <path d="M12.0371 6.86423C9.20069 6.86423 6.89937 9.1654 6.89937 12.002C6.89937 14.8385 9.20069 17.1397 12.0371 17.1397C14.8736 17.1397 17.1748 14.8385 17.1748 12.002C17.1748 9.1654 14.8736 6.86423 12.0371 6.86423ZM12.0371 15.3347C10.197 15.3347 8.70438 13.8422 8.70438 12.002C8.70438 10.1617 10.197 8.66924 12.0371 8.66924C13.8774 8.66924 15.3698 10.1617 15.3698 12.002C15.3698 13.8422 13.8774 15.3347 12.0371 15.3347Z" fill="white"/>
+            <path d="M18.5776 6.6611C18.5776 7.32346 18.0405 7.86053 17.378 7.86053C16.7156 7.86053 16.1785 7.32346 16.1785 6.6611C16.1785 5.99858 16.7156 5.46167 17.378 5.46167C18.0405 5.46167 18.5776 5.99858 18.5776 6.6611Z" fill="white"/>
+            </svg>
+        </a>
+        <a href="#" class="contacts-social__item tg">
+            <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7493 3.33042C13.4206 4.31934 8.76667 6.36615 1.78736 9.47086C0.654033 9.93102 0.0603449 10.3812 0.00629878 10.8214C-0.0850406 11.5653 0.827363 11.8582 2.06982 12.2571C2.23883 12.3114 2.41394 12.3676 2.59347 12.4272C3.81586 12.8329 5.46019 13.3075 6.31501 13.3264C7.09041 13.3435 7.95585 13.0171 8.91132 12.3472C15.4323 7.85279 18.7985 5.5811 19.0098 5.53213C19.1589 5.49758 19.3655 5.45414 19.5055 5.58118C19.6455 5.70822 19.6317 5.94881 19.6169 6.01335C19.5265 6.40678 15.945 9.8065 14.0915 11.5659C13.5137 12.1143 13.1039 12.5034 13.0201 12.5922C12.8324 12.7913 12.6411 12.9796 12.4573 13.1605C11.3216 14.2783 10.47 15.1165 12.5044 16.4853C13.4821 17.1431 14.2644 17.6871 15.0449 18.2298C15.8972 18.8224 16.7473 19.4135 17.8473 20.1497C18.1275 20.3373 18.3952 20.5321 18.6558 20.7218C19.6478 21.4439 20.5389 22.0925 21.6399 21.9891C22.2796 21.929 22.9404 21.3148 23.276 19.483C24.0692 15.1538 25.6281 5.7739 25.9884 1.90865C26.02 1.57001 25.9803 1.13661 25.9484 0.946358C25.9165 0.756105 25.8499 0.485037 25.6077 0.284372C25.3208 0.0467249 24.878 -0.00338923 24.68 0.000172664C23.7795 0.0163687 22.398 0.506852 15.7493 3.33042Z" fill="white"/>
+            </svg>
+        </a>
+        <a href="#" class="contacts-social__item youtube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3903 4.11407C22.4182 4.39093 23.2288 5.20135 23.5055 6.22948C24.0197 8.1074 23.9999 12.0218 23.9999 12.0218C23.9999 12.0218 23.9999 15.9163 23.5057 17.7944C23.2288 18.8223 22.4184 19.6329 21.3903 19.9096C19.5122 20.404 12 20.404 12 20.404C12 20.404 4.50731 20.404 2.60961 19.89C1.58148 19.6131 0.771054 18.8025 0.4942 17.7746C0 15.9163 0 12.002 0 12.002C0 12.002 0 8.1074 0.4942 6.22948C0.770871 5.20153 1.60125 4.37115 2.60943 4.09448C4.48753 3.6001 11.9998 3.6001 11.9998 3.6001C11.9998 3.6001 19.5122 3.6001 21.3903 4.11407ZM15.8549 12.0021L9.60788 15.6001V8.40404L15.8549 12.0021Z" fill="white"/>
+            </svg>
+
+        </a>
+    </div>
+</div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/imask"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

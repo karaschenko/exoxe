@@ -1,0 +1,35 @@
+.order {
+    background: linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%), url('../media/order-bg.png'), lightgray 50% / cover no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .container {
+        align-items: center;
+    }
+
+    .col-6 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .order-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__list {
+            font-weight: 500;
+        }
+    }
+
+
+    .ui_button span {
+        width: 310px;
+        text-align: center;
+    }
+
+    &__title {
+        font-weight: 400;
+        margin-bottom:  4 * $base-space;
+    }
+}

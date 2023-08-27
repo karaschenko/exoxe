@@ -1,0 +1,217 @@
+.protocol {
+    background: $black-color;
+    color: $white-color;
+
+    @media(max-width: $tablet-breakpoint) {
+        padding: 32px 0;
+    }
+}
+
+.accordion-item {
+  margin-bottom: 4 * $base-space;
+
+    @media(max-width: $tablet-breakpoint) {
+        margin-bottom: 24px;
+    }
+}
+
+.accordion-input {
+  display: none;
+}
+
+.accordion-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.accordion-arrow {
+    width: 7 * $base-space;
+    height: 7 * $base-space;
+    background: url('../media/icons/arrow.svg') no-repeat center;
+    margin-right: 2 * $base-space;
+
+    @media(max-width: $tablet-breakpoint) {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+    }
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+
+  &-list {
+    list-style-position: outside;
+  }
+}
+
+.accordion-input:checked + .accordion-header .accordion-arrow {
+  transform: rotate(90deg);
+}
+
+.accordion-input:checked + .accordion-header + .accordion-content {
+  max-height: 1000px
+}
+
+.protocol-buttons {
+    display: flex;
+    gap: 7 * $base-space;
+
+    @media(max-width: $tablet-breakpoint) {
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .protocol-button {
+        background: transparent;
+        padding: 22px 32px;
+        color: $primary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5 * $base-space;
+
+        @media(max-width: $tablet-breakpoint) {
+            padding: 16px 32px;
+            gap: 12px;
+        }
+
+         &:hover {
+            background: #F899AA;
+            border-color: #F899AA;
+            color: $white-color;
+
+            svg path {
+                stroke: $white-color;
+            }
+        }
+
+        &:active {
+            background: #DD647A;
+            border-color: #DD647A;
+            color: $white-color;
+
+            svg path {
+                stroke: $white-color;
+            }
+        }
+    }
+}
+
+.results {
+    background: url('../media/results-bg.png'), lightgray 50% / cover no-repeat;
+    mix-blend-mode: lighten;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 7 * $base-space;
+    }
+
+    @media(max-width: $mobile-breakpoint) {
+        .results-list {
+            gap: 0;
+        }
+    }
+
+    &-item {
+        display: flex;
+        gap: 27px;
+        margin-bottom: 4 * $base-space;
+
+        @media(max-width: $tablet-breakpoint) {
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        &__num {
+            width: 133px;
+            height: 133px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Montserrat;
+            font-size: 96px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 104px;
+            text-transform: uppercase;
+            color: $primary-color;
+            border-radius: 50%;
+            background: #fff;
+            flex-shrink: 0;
+            margin-top: 3 * $base-space;
+
+            @media(max-width: $tablet-breakpoint) {
+                width: 80px;
+                height: 80px;
+                font-size: 64px;
+                line-height: 72;
+            }
+
+        }
+
+        &__title {
+            position: relative;
+            margin-bottom:  18px;
+
+            .title__line {
+                position: absolute;
+                height: 3px;
+                width: calc(100% + 20px);
+                left: -20px;
+                bottom: -3px;
+                background:  $primary-color;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    height: 3px;
+                    width: 20px;
+                    background:  $primary-color;
+                    rotate: -45deg;
+                    transform: translate(-15px, -6px);
+                }
+
+            }
+        }
+
+        &__text {
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+}
+
+.master-class {
+    background: $black-color;
+    color: $white-color;
+
+    .container {
+        align-items: center;
+    }
+
+    .col-6 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__condition {
+        margin-top: 3 * $base-space;
+        font-size: 18px;
+    }
+
+    .ui_button span {
+        width: 310px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,161 @@
+.technologie {
+    .container {
+        justify-content: center;
+    }
+
+    &__title {
+        margin-bottom: 7 * $base-space;
+        color: $primary-color;
+
+        @media(max-width: $tablet-breakpoint) {
+          margin-bottom: 24px;
+        }
+    }
+
+    &__content {
+        position: relative;
+        max-width: 1008px;
+        padding: 2 * $base-space;
+        padding-left:  129px;
+
+        @media(max-width: $tablet-breakpoint) {
+          padding-left: 16px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: $base-space;
+            height: calc(100% - 32px);
+            background: $primary-color;
+
+            @media(max-width: $tablet-breakpoint) {
+              width: 2px;
+            }
+        }
+    }
+}
+
+.marquee {
+  --gap: 32px;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+  background: $black-color;
+  color: $white-color;
+  text-transform: uppercase;
+  padding: 2 * $base-space 0;
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+  animation: scroll 10s linear infinite;
+
+  span {
+    font-weight: 400;
+  }
+
+  &>* {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: -2 * $base-space;
+        top: calc(50% - 2.5px);
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #fff;
+    }
+  }
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+/* Pause animation when reduced-motion is set */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+    animation-play-state: paused !important;
+  }
+}
+
+.flacons {
+    background: radial-gradient(113.16% 219.33% at -6.41% -10.26%, #E88597 0%, #FFD4CF 95.83%), url("../media/flacon-bg.png") no-repeat center;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 8 * $base-space;
+
+        @media(max-width: $tablet-breakpoint) {
+            margin-bottom: 32px;
+        }
+    }
+
+    .container {
+        justify-content: space-between;
+        gap: 46px;
+
+        @media(max-width: $tablet-breakpoint) {
+            gap: 24px;
+        }
+    }
+
+    .flacons-item {
+        width: 50%;
+        display: flex;
+        gap: 4 * $base-space;
+        padding: 4 * $base-space;
+        background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
+        @media(max-width: $tablet-breakpoint) {
+          width: 100%;
+        }
+        .flacons__img {
+            flex-shrink: 0;
+            align-self: center;
+
+            @media(max-width: $tablet-breakpoint) {
+              width: 16%;
+              align-self: flex-start;
+            }
+        }
+
+        &__title {
+            color: $primary-color;
+        }
+
+        .flacon-item__desc {
+            margin-bottom: 7 * $base-space;
+            font-weight: 700;
+
+            @media(max-width: $tablet-breakpoint) {
+              margin-bottom: 16px;
+            }
+        }
+
+        .flacon-item__list {
+            list-style-position: inside;
+            padding-left: 0;
+            -webkit-padding-start: 0;
+        }
+    }
+
+    .flacon-separator {
+        align-self: center;
+    }
+}

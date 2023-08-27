@@ -1,0 +1,44 @@
+<section class="ui_section order-form">
+    <div class="container">
+        <h2 class="order-form__title ui_h2">
+        Давайте працювати разом!
+        </h2>
+        <div class="order-form__desc">
+                Якщо ви косметолог, лікар або бажаєте продавати продукцію EXOXETM, залиште свої контакти:
+        </div>
+        <form onsubmit="return mockFormSubmit(event)" class="order-form__form">
+            <div class="input-container">
+                <input type="text" name="name" placeholder="Ваше імʼя"/>
+                <label for="name">Ваше імʼя</label>		
+            </div>
+            <div class="input-container">
+                <input type="text" name="phone" id="phoneInput" placeholder="Ваше телефон"/>
+                <label for="phone">Ваш телефон</label>		
+            </div>
+            <button class="ui_button" id="submitBtn">
+                Відправити заявку
+            </button>
+            <div class="response-message" style="display: none;">
+                Дякуємо, вашу заявку прийнято,
+                з вами зв’яжеться менеджер
+                для подальшої співпраці
+            </div>
+        </form>
+    </div>
+
+    
+
+    <script>
+        // mock form request - remove
+
+        function mockFormSubmit(event) {
+            event.preventDefault(); 
+            document.querySelector(".response-message").style.display = "block";
+
+            setTimeout(function() {
+                document.querySelector(".response-message").style.display = "none";
+            }, 2000); 
+        }
+    </script>
+    
+</section>
