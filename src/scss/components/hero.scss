@@ -1,19 +1,21 @@
 .hero {
-    min-height: calc(100vh - $header-height);
-    width: 100vw;
+    height: calc(100vh - $header-height);
     position: relative;
+
+    &-wrapper {
+        height: 100%;
+    }
 
     &-video {
         height: 100%;
         width: 100%;
         object-fit: cover;
         object-position: center;
-        position: absolute;
-        top: 0;
     }
 
     .container {
         position: relative;
+        top: -100%;
     }
 
     .mute-button {

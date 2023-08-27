@@ -389,20 +389,21 @@ select {
   }
 }
 .hero {
-  min-height: calc(100vh - 100px);
-  width: 100vw;
+  height: calc(100vh - 100px);
   position: relative;
+}
+.hero-wrapper {
+  height: 100%;
 }
 .hero-video {
   height: 100%;
   width: 100%;
   object-fit: cover;
   object-position: center;
-  position: absolute;
-  top: 0;
 }
 .hero .container {
   position: relative;
+  top: -100%;
 }
 .hero .mute-button {
   position: absolute;
@@ -451,7 +452,9 @@ select {
 }
 .what-is__image img {
   position: absolute;
-  top: -30%;
+  top: -59%;
+  max-width: 150%;
+  right: -27%;
 }
 .what-is__image .what-is__image-title {
   position: absolute;

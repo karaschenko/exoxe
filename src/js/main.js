@@ -117,6 +117,7 @@ function uniqueAnimation() {
         opacity: 1,
         x: 0,
         duration: 1,
+        delay: 2,
         scrollTrigger: {
             trigger: uniqueContent,
             start: 'top 80%',
