@@ -1,6 +1,12 @@
 .hero {
     height: calc(100vh - $header-height);
     position: relative;
+    margin-top: $header-height;
+
+     @media(max-width: $tablet-breakpoint)  {
+        margin-top: 56px;
+        height: calc(100vh - 112px);
+     }
 
     &-wrapper {
         height: 100%;

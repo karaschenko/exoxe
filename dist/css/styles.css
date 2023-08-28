@@ -231,7 +231,7 @@ select {
   color: #E88597;
 }
 .ui_section {
-  padding: 96px 0;
+  padding: 96px 16px;
 }
 @media (max-width: 1024px) {
   .ui_section {
@@ -268,7 +268,7 @@ select {
 }
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -277,6 +277,11 @@ select {
   z-index: 2;
   line-height: 21.13px;
   padding: 0 32px;
+}
+@media (max-width: 1024px) {
+  .header {
+    padding: 0;
+  }
 }
 .header .container {
   height: 100%;
@@ -369,8 +374,16 @@ select {
   .menu-hide {
     display: none;
   }
+  .header__menu-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header__menu-switch .menu-show {
+    display: flex;
+  }
   .show-mobile-menu .menu-hide {
-    display: block;
+    display: flex;
   }
   .show-mobile-menu .menu-show {
     display: none;
@@ -386,7 +399,7 @@ select {
     left: 0;
     height: calc(100vh - 56px);
     width: 100%;
-    z-index: 900;
+    z-index: 4;
     transform: translate3D(-100%, 0, 0);
     padding: 0 24px 24px 24px;
     transition: transform 0.3s ease;
@@ -404,6 +417,13 @@ select {
 .hero {
   height: calc(100vh - 100px);
   position: relative;
+  margin-top: 100px;
+}
+@media (max-width: 1024px) {
+  .hero {
+    margin-top: 56px;
+    height: calc(100vh - 112px);
+  }
 }
 .hero-wrapper {
   height: 100%;
@@ -595,7 +615,7 @@ select {
 }
 @media (max-width: 1024px) {
   .unique {
-    padding: 32px 0;
+    padding: 32px 0 0;
   }
   .unique .container {
     padding: 0;
@@ -652,6 +672,7 @@ select {
 @media (max-width: 1024px) {
   .advantages {
     background: #E88597;
+    padding-bottom: 0;
   }
 }
 .advantages__title {
@@ -758,7 +779,7 @@ select {
 }
 .flacons {
   background: url("../media/flacon-bg.png") no-repeat center;
-  background-position: cover;
+  background-size: cover;
 }
 .flacons__title {
   text-align: center;
@@ -934,6 +955,7 @@ select {
 .results {
   background: url(../media/results-bg.png) no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 .results__title {
   text-align: center;
@@ -985,6 +1007,11 @@ select {
   position: relative;
   margin-bottom: 18px;
 }
+@media (max-width: 1024px) {
+  .results-item__title {
+    margin-bottom: 8px;
+  }
+}
 .results-item__title .title__line {
   position: absolute;
   height: 3px;
@@ -992,6 +1019,11 @@ select {
   left: -20px;
   bottom: -3px;
   background: #E88597;
+}
+@media (max-width: 1024px) {
+  .results-item__title .title__line {
+    display: none;
+  }
 }
 .results-item__title .title__line::before {
   position: absolute;
@@ -1001,6 +1033,11 @@ select {
   background: #E88597;
   rotate: -45deg;
   transform: translate(-15px, -6px);
+}
+@media (max-width: 1024px) {
+  .results-item__title .title__line::before {
+    display: none;
+  }
 }
 .results-item__text {
   font-size: 18px;
@@ -1162,6 +1199,11 @@ select {
   background: #2F2F33;
   color: #fff;
 }
+@media (max-width: 1024px) {
+  .footer {
+    padding: 32px 0;
+  }
+}
 .footer .container {
   justify-content: space-between;
 }
@@ -1230,5 +1272,6 @@ select {
   background: #2F2F33;
   height: 56px;
   padding: 0 16px;
-  z-index: 1000;
+  z-index: 3;
+  margin: 0;
 }

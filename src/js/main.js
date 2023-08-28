@@ -105,13 +105,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const whatIsSection = documentQuerySelector = '#about';
     gsap.to(whatIsSection, {
-    scrollTrigger: {
-        trigger: whatIsSection,
-        start: 'top center',
-        end: 'bottom center',
-        toggleActions: 'play none none reverse',
-        onEnter: () => startInfiniteAnimation(),
-    },
+        scrollTrigger: {
+            trigger: whatIsSection,
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'play none none reverse',
+            onEnter: () => startInfiniteAnimation(),
+        },
     });
 
 
@@ -170,10 +170,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        separators.forEach((separator) => {
+        separators.forEach((separator, i) => {
             gsap.set(separator, { opacity: 0 });
             gsap.to(separator, {
                 opacity: 1,
+                delay: i * 0.7 + 1,
                 scrollTrigger: {
                     trigger: statisticList,
                     start: 'top 80%',
@@ -271,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const phoneInput = document.getElementById('phoneInput');
   const phoneMask = new IMask(phoneInput, {
-      mask: '+{38\\0} 00 000 00 00', // Change this mask as needed
+      mask: '+{38\\0} 00 000 00 00',
   });
 
 });

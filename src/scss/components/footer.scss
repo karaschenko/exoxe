@@ -3,6 +3,10 @@
     background: $black-color;
     color: #fff;
 
+     @media(max-width: $tablet-breakpoint)  {
+        padding: 32px 0;
+     }
+
     .container {
         justify-content: space-between;
     }

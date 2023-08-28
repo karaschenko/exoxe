@@ -112,6 +112,7 @@
 .results {
     background: url(../media/results-bg.png) no-repeat;
     background-size: cover;
+    overflow: hidden;
 
     &__title {
         text-align: center;
@@ -165,6 +166,10 @@
             position: relative;
             margin-bottom:  18px;
 
+            @media(max-width: $tablet-breakpoint) {
+                margin-bottom: 8px;
+            }
+
             .title__line {
                 position: absolute;
                 height: 3px;
@@ -172,6 +177,10 @@
                 left: -20px;
                 bottom: -3px;
                 background:  $primary-color;
+
+                @media(max-width: $tablet-breakpoint) {
+                        display: none;
+                }
 
                 &::before {
                     position: absolute;
@@ -181,6 +190,10 @@
                     background:  $primary-color;
                     rotate: -45deg;
                     transform: translate(-15px, -6px);
+
+                    @media(max-width: $tablet-breakpoint) {
+                        display: none;
+                    }
                 }
 
             }

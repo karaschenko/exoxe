@@ -1,9 +1,6 @@
-$item-gap: 56px;
-$header-fs: 18px;
-$header-height: 100px;
 
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -12,6 +9,10 @@ $header-height: 100px;
     z-index: 2;
     line-height: 21.13px;
     padding: 0 32px;
+
+     @media(max-width: $tablet-breakpoint)  {
+        padding: 0;
+     }
 
     .container {
         height: 100%; 
@@ -115,10 +116,21 @@ $header-height: 100px;
         display: none;
     }
 
+    .header__menu-switch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .menu-show {
+            display: flex;
+        }
+    }
+
+
     .show-mobile-menu {
 
         & .menu-hide { 
-            display: block;
+            display: flex;
         }
 
         & .menu-show { 
@@ -138,7 +150,7 @@ $header-height: 100px;
         left: 0;
         height: calc(100vh - 56px);
         width: 100%;
-        z-index: 900;
+        z-index: 4;
         transform: translate3D(-100%, 0, 0);
         padding: 0 24px 24px 24px;
         transition: transform 0.3s ease;
