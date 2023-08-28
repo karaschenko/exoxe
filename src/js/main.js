@@ -3,68 +3,72 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-function startInfiniteAnimation(targetSelector) {
-  const target = document.querySelector(targetSelector);
+
+
+function startInfiniteAnimation() {
+  const targetImage = document.querySelector('.animated-exosome');
+  const targetText = document.querySelector('.what-is__image-title');
   const animationTimeline = gsap.timeline({ repeat: -1 });
 
   const animationSteps = [
-    { rotation: 0, scale: 1, opacity: 1, duration: 2, ease: 'power2.out' },
     { rotation: -90, scale: 0.1, opacity: 0, duration: 2, ease: 'power2.out' },
     { rotation: 0, scale: 1, opacity: 1, duration: 2, ease: 'power2.out' },
   ];
 
   animationSteps.forEach((step) => {
-    animationTimeline.to(target, {
+    animationTimeline.to(targetImage, {
       ...step,
-      delay: 0,
+      delay: 1,
     });
   });
+
+  gsap.to(targetText, {
+        opacity: 0,
+        y: 50,
+        scale: 0.8,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut',
+        duration: 3,
+        scrollTrigger: {
+            trigger: targetImage,
+            start: 'top 80%',
+        },
+    });
 
   animationTimeline.play();
 }
 
 
-function whatIsAnimation() {
-    const whatIsContent = document.querySelector('.what-is__content');
-    const contentBlocks = whatIsContent.querySelectorAll('.content-block');
-
-    gsap.set(whatIsContent, { opacity: 0, x: 100 });
-
-    gsap.to(whatIsContent, {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        scrollTrigger: {
-            trigger: whatIsContent,
-            start: 'top 80%',
-        },
-    });
+function appereanceAnimation(element, delay = 0.5) {
+    const contentBlocks = document.querySelectorAll(`${element} .animation-block`);
+    const trigger = document.querySelectorAll(element);
 
     contentBlocks.forEach((block, index) => {
-        gsap.fromTo(
-            block,
-            { opacity: 0, x: 100 },
-            {
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: whatIsContent,
-                    scrub: 0.5, // Add scrub for smooth appearance
-                },
-            }
-        );
+
+        gsap.set(block, { opacity: 0, y: 50 });
+        gsap.to(block, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: animationOrder ? animationOrder * delay : index * delay,
+            scrollTrigger: {
+                trigger,
+                start: 'top 80%',
+            },
+        });
     });
 }
 
 function statisticAnimation() {
     const statisticItems = document.querySelectorAll('.statistic-list__item');
+    const statisticList = document.querySelectorAll('.statistic-list');
     const separators = document.querySelectorAll('.separator');
 
     statisticItems.forEach((item, index) => {
         let animation = gsap.timeline({
             scrollTrigger: {
-                trigger: item,
+                trigger: statisticList,
                 start: 'top 80%',
             },
         });
@@ -91,10 +95,11 @@ function statisticAnimation() {
     });
 
     separators.forEach((separator) => {
+        gsap.set(separator, { opacity: 0 });
         gsap.to(separator, {
             opacity: 1,
             scrollTrigger: {
-                trigger: separator,
+                trigger: statisticList,
                 start: 'top 80%',
             },
         });
@@ -104,59 +109,23 @@ function statisticAnimation() {
 
 function uniqueAnimation() {
     const uniqueSection = document.querySelector('.unique');
-    const uniqueContent = uniqueSection.querySelector('.unique-content');
-    const uniqueListItems = uniqueSection.querySelectorAll('.unique-list__item');
-    const uniqueMedia = uniqueSection.querySelector('.unique-media');
     const animateImage = uniqueSection.querySelector('.unique-media__animate-image');
 
-    gsap.set(uniqueContent, { opacity: 0, x: -100 });
-    gsap.set(uniqueListItems, { opacity: 0, x: -100 });
-    gsap.set(animateImage, { opacity: 0, x: -50, transformOrigin: 'center' });
+    appereanceAnimation('.unique', 0.7)
 
-    gsap.to(uniqueContent, {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        delay: 2,
-        scrollTrigger: {
-            trigger: uniqueContent,
-            start: 'top 80%',
-        },
-    });
 
-    uniqueListItems.forEach((item, index) => {
-        gsap.to(item, {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: {
-                trigger: uniqueListItems,
-                start: `top ${80 + index * 10}%`,
-            },
-        });
-    });
-
-    gsap.to(uniqueMedia, {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        scrollTrigger: {
-            trigger: uniqueMedia,
-            start: 'top 80%',
-        },
-    });
 
     gsap.to(animateImage, {
         opacity: 1,
         x: 0,
-        rotation: 360,
-        scale: 1.1,
+        rotation: 60,
+        scale: 0.8,
         repeat: -1,
         yoyo: true,
         ease: 'power1.inOut',
-        duration: 15,
+        duration: 3,
         scrollTrigger: {
-            trigger: uniqueMedia,
+            trigger: uniqueSection,
             start: 'top 80%',
         },
     });
@@ -208,19 +177,6 @@ function advantagesAnimation() {
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1 }
     );
-}
-
-
-function technologieAnimation() {
-    gsap.from('.technologie__content', {
-        x: -100,
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: {
-            trigger: '.technologie',
-            start: 'top 80%',
-        },
-    });
 }
 
 
@@ -287,7 +243,7 @@ function orderAnimation() {
     });
 }
 
-const animatedExosome = '.animated-exosome';
+
 const whatIsSection = documentQuerySelector = '#about';
 gsap.to(whatIsSection, {
   scrollTrigger: {
@@ -295,7 +251,7 @@ gsap.to(whatIsSection, {
     start: 'top center',
     end: 'bottom center',
     toggleActions: 'play none none reverse',
-    onEnter: () => startInfiniteAnimation(animatedExosome),
+    onEnter: () => startInfiniteAnimation(),
   },
 });
 
@@ -348,12 +304,26 @@ document.addEventListener('DOMContentLoaded', function() {
       documentBody.classList.remove('show-mobile-menu');
 
       gsap.to(window, {
-        duration: 0.5,
+        duration: 0.3,
         scrollTo: yPosition,
         onComplete: setActiveClass(link),
       });
     });
   });
+
+  const accordionCheckboxes = document.querySelectorAll('.accordion-item input');
+
+  accordionCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            accordionCheckboxes.forEach((otherCheckbox) => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        } 
+  })
+});
 
   function setActiveClass(clickedLink) {
     navLinks.forEach(link => {
@@ -362,14 +332,14 @@ document.addEventListener('DOMContentLoaded', function() {
     clickedLink.parentNode.classList.add('active');
   }
 
-  whatIsAnimation();
+  appereanceAnimation('.what-is__content');
   uniqueAnimation();
   statisticAnimation();
-  advantagesAnimation();
-  technologieAnimation();
-  flaconsAnimation();
-  resultsAnimation();
-  orderAnimation();
+  appereanceAnimation('.advantages');
+  appereanceAnimation('.technologie');
+  appereanceAnimation('.results', 0.7);
+  appereanceAnimation('.flacons', 0.3);
+  appereanceAnimation('.order', 0.6);
 
 
   const phoneInput = document.getElementById('phoneInput');

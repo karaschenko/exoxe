@@ -1,8 +1,7 @@
 .advantages {
     color: $white-color;
-    background: 
-        linear-gradient(90deg, #E88597 7.29%, rgba(232, 133, 151, 0.80) 60.88%, rgba(255, 255, 255, 0.00) 100%),
-        url('../media/advantages-bg.png') no-repeat bottom;
+    background: linear-gradient(90deg, #E88597 7.29%, rgba(232, 133, 151, 0.8) 43.88%, rgba(255, 255, 255, 0) 62%), url("../media/advantages-bg.png") no-repeat bottom;
+    background-size: cover;
 
     @media(max-width: $tablet-breakpoint) {
         background: $primary-color;

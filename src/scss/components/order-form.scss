@@ -1,6 +1,7 @@
 .order-form {
-    background: url('../media/form-bg.png'), lightgray 50% / cover no-repeat;
-    mix-blend-mode: lighten;
+    background: url(../media/form-bg.png) no-repeat;
+    background-size: cover;
+
 
     .container {
         flex-direction: column;

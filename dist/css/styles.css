@@ -30,16 +30,11 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 /* Set core body defaults */
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  overflow-x: hidden;
 }
 
 a, button {
@@ -73,6 +68,11 @@ select {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+@media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden;
   }
 }
 .container {
@@ -630,7 +630,8 @@ select {
 
 .advantages {
   color: #fff;
-  background: linear-gradient(90deg, #E88597 7.29%, rgba(232, 133, 151, 0.8) 60.88%, rgba(255, 255, 255, 0) 100%), url("../media/advantages-bg.png") no-repeat bottom;
+  background: linear-gradient(90deg, #E88597 7.29%, rgba(232, 133, 151, 0.8) 43.88%, rgba(255, 255, 255, 0) 62%), url("../media/advantages-bg.png") no-repeat bottom;
+  background-size: cover;
 }
 @media (max-width: 1024px) {
   .advantages {
@@ -740,7 +741,8 @@ select {
   }
 }
 .flacons {
-  background: radial-gradient(113.16% 219.33% at -6.41% -10.26%, #E88597 0%, #FFD4CF 95.83%), url("../media/flacon-bg.png") no-repeat center;
+  background: url("../media/flacon-bg.png") no-repeat center;
+  background-position: cover;
 }
 .flacons__title {
   text-align: center;
@@ -765,7 +767,7 @@ select {
   display: flex;
   gap: 32px;
   padding: 32px;
-  background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0) 150%);
 }
 @media (max-width: 1024px) {
   .flacons .flacons-item {
@@ -831,7 +833,6 @@ select {
   display: flex;
   align-items: center;
   position: relative;
-  text-transform: uppercase;
 }
 
 .accordion-arrow {
@@ -839,6 +840,7 @@ select {
   height: 56px;
   background: url("../media/icons/arrow.svg") no-repeat center;
   margin-right: 16px;
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 1024px) {
   .accordion-arrow {
@@ -863,6 +865,10 @@ select {
 
 .accordion-input:checked + .accordion-header + .accordion-content {
   max-height: 1000px;
+}
+
+.accordion-input:checked + .accordion-header {
+  color: #E88597;
 }
 
 .protocol-buttons {
@@ -910,8 +916,8 @@ select {
 }
 
 .results {
-  background: url("../media/results-bg.png"), lightgray 50%/cover no-repeat;
-  mix-blend-mode: lighten;
+  background: url(../media/results-bg.png) no-repeat;
+  background-size: cover;
 }
 .results__title {
   text-align: center;
@@ -1039,8 +1045,8 @@ select {
 }
 
 .order-form {
-  background: url("../media/form-bg.png"), lightgray 50%/cover no-repeat;
-  mix-blend-mode: lighten;
+  background: url(../media/form-bg.png) no-repeat;
+  background-size: cover;
 }
 .order-form .container {
   flex-direction: column;

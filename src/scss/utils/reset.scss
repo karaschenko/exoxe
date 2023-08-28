@@ -30,16 +30,11 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 /* Set core body defaults */
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  overflow-x: hidden;
 }
 
 a, button {
@@ -75,4 +70,11 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  html, body {
+    overflow-x: hidden;
+  }
+  
 }

@@ -24,7 +24,6 @@
   display: flex;
   align-items: center;
   position: relative;
-  text-transform: uppercase;
 }
 
 .accordion-arrow {
@@ -32,6 +31,7 @@
     height: 7 * $base-space;
     background: url('../media/icons/arrow.svg') no-repeat center;
     margin-right: 2 * $base-space;
+    transition: all 0.3s ease-in-out;
 
     @media(max-width: $tablet-breakpoint) {
         width: 24px;
@@ -56,6 +56,10 @@
 
 .accordion-input:checked + .accordion-header + .accordion-content {
   max-height: 1000px
+}
+
+.accordion-input:checked + .accordion-header {
+    color: $primary-color;
 }
 
 .protocol-buttons {
@@ -106,8 +110,8 @@
 }
 
 .results {
-    background: url('../media/results-bg.png'), lightgray 50% / cover no-repeat;
-    mix-blend-mode: lighten;
+    background: url(../media/results-bg.png) no-repeat;
+    background-size: cover;
 
     &__title {
         text-align: center;
