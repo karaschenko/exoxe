@@ -139,7 +139,6 @@ select {
     font-size: 20px;
     line-height: 28px;
     max-width: 100%;
-    overflow-x: hidden;
   }
 }
 @media (max-width: 768px) {
@@ -277,6 +276,7 @@ select {
   background-color: #2F2F33;
   z-index: 2;
   line-height: 21.13px;
+  padding: 0 32px;
 }
 .header .container {
   height: 100%;
@@ -285,9 +285,11 @@ select {
   display: flex;
   align-items: center;
   height: 100%;
+  min-width: 120px;
 }
 @media (max-width: 1024px) {
   .header .header-logo {
+    min-width: 90px;
     width: 90px;
     height: 24px;
   }
@@ -310,6 +312,12 @@ select {
   margin: 0;
   padding: 0;
 }
+@media (max-width: 1300px) {
+  .header .header-nav .header-menu {
+    gap: 12px;
+    font-size: 18px;
+  }
+}
 .header .header-nav .header-menu__item {
   position: relative;
 }
@@ -329,6 +337,11 @@ select {
   display: flex;
   align-items: center;
   margin-left: 56px;
+}
+@media (max-width: 1300px) and (min-width: 1024px) {
+  .header .header-nav .language-switcher {
+    display: none;
+  }
 }
 .header .header-nav .language-switcher__input {
   display: none;
@@ -428,7 +441,8 @@ select {
 }
 
 .what-is {
-  background: radial-gradient(113.16% 219.33% at -6.41% -10.26%, #FBC5C9 0%, #E88597 44.27%, #894B52 100%), url("../../dist/media/what-is-bg.png") left bottom no-repeat;
+  background: radial-gradient(223.48% 152.09% at -6.41% -10.26%, #FBC5C9 0%, #E88597 44.27%, #894B52 100%);
+  background-size: cover;
   color: #fff;
   padding: 96px 0;
 }
@@ -482,6 +496,8 @@ select {
   .what-is__image img {
     position: relative;
     top: 0;
+    right: auto;
+    left: auto;
   }
   .what-is__image .what-is__image-title {
     position: relative;
@@ -707,7 +723,7 @@ select {
   justify-content: space-around;
   gap: var(--gap);
   min-width: 100%;
-  animation: scroll 10s linear infinite;
+  animation: scroll 20s linear infinite;
 }
 .marquee__content span {
   font-weight: 400;
@@ -1142,7 +1158,7 @@ select {
 }
 
 .footer {
-  padding: 56px 0;
+  padding: 56px 32px;
   background: #2F2F33;
   color: #fff;
 }
@@ -1200,4 +1216,19 @@ select {
 .contacts-social__item:hover svg path {
   stroke: #E88597;
   fill: #E88597;
+}
+
+.sticky-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  background: #2F2F33;
+  height: 56px;
+  padding: 0 16px;
+  z-index: 1000;
 }

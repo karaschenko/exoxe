@@ -1,6 +1,6 @@
 .what-is {
-    background: radial-gradient(113.16% 219.33% at -6.41% -10.26%, #FBC5C9 0%, #E88597 44.27%, #894B52 100%),
-    url('../../dist/media/what-is-bg.png') left bottom no-repeat;
+    background: radial-gradient(223.48% 152.09% at -6.41% -10.26%, #FBC5C9 0%, #E88597 44.27%, #894B52 100%);
+    background-size: cover;
     color: $white-color;
     padding: 96px 0;
 
@@ -54,6 +54,8 @@
             img {
                 position: relative;
                 top: 0;
+                right: auto;
+                left: auto;
             }
 
             .what-is__image-title {

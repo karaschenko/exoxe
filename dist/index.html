@@ -32,12 +32,12 @@
     </a>
     <nav class="header-nav">
         <ul class="header-menu hidden-tablet" role="list">
-            <li class="header-menu__item ui_link"><a href="#about">Про екзосоми</a></li>
-<li class="header-menu__item ui_link"><a href="#unique">Унікальність</a></li>
-<li class="header-menu__item ui_link"><a href="#flacons">Склад</a></li>
-<li class="header-menu__item ui_link"><a href="#protocol">Протокол</a></li>
-<li class="header-menu__item ui_link"><a href="#order">Замовити</a></li>
-<li class="header-menu__item ui_link"><a href="#contacts">Контакти</a></li>
+            <li class="header-menu__item scroll-link ui_link" data-scroll=".what-is__content"><a href="#about">Про екзосоми</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".unique"><a href="#unique">Унікальність</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".technologie"><a href="#flacons">Склад</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".protocol"><a href="#protocol">Протокол</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".order"><a href="#order">Замовити</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".order-form"><a href="#contacts">Контакти</a></li>
         </ul>
        <div class="language-switcher">
             <label class="language-switcher__option">
@@ -55,12 +55,12 @@
 
 <div class="mobile-menu hidden-desktop">
     <ul class="header-menu" role="list">
-        <li class="header-menu__item ui_link"><a href="#about">Про екзосоми</a></li>
-<li class="header-menu__item ui_link"><a href="#unique">Унікальність</a></li>
-<li class="header-menu__item ui_link"><a href="#flacons">Склад</a></li>
-<li class="header-menu__item ui_link"><a href="#protocol">Протокол</a></li>
-<li class="header-menu__item ui_link"><a href="#order">Замовити</a></li>
-<li class="header-menu__item ui_link"><a href="#contacts">Контакти</a></li>
+        <li class="header-menu__item scroll-link ui_link" data-scroll=".what-is__content"><a href="#about">Про екзосоми</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".unique"><a href="#unique">Унікальність</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".technologie"><a href="#flacons">Склад</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".protocol"><a href="#protocol">Протокол</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".order"><a href="#order">Замовити</a></li>
+<li class="header-menu__item scroll-link ui_link" data-scroll=".order-form"><a href="#contacts">Контакти</a></li>
         
     </ul>
    <div class="contacts">
@@ -373,7 +373,7 @@
 
 </section>
    <section class="ui_section protocol" id="protocol">
-    <div class="container">
+    <div class="container animation-block">
         <div class="accordion">
             <div class="accordion-item">
                 <input type="checkbox" id="section1" class="accordion-input">
@@ -612,18 +612,18 @@
 </section>
    <section class="ui_section order" id="order">
     <div class="container">
-        <div class="col-6">
+        <div class="col-6 animation-block">
             <img src="media/order-img.png" alt="order-exoxe">
         </div>
         <div class="col-6">
-            <h2 class="ui_title order__title">
+            <h2 class="ui_title order__title animation-block">
                 Замовити EXOXE™:
             </h2>
             <div class="order-content">
-                <b class="order-content__title">
+                <b class="order-content__title animation-block">
                     Склад:
                 </b>
-                <ul class="order-content__list">
+                <ul class="order-content__list animation-block">
                     <li>
                         Скляний флакон ліофілізованого порошку чистих екзосом з амніотичної рідини людини (6 млрд.) – 50 мг
                     </li>
@@ -631,13 +631,13 @@
                        Скляний флакон стерильного розчину гіалуронової кислоти – 5 мл
                     </li>
                 </ul>
-                <a href="#" class="ui_button" target="_blank"><span>Замовити</span></a> 
+                <a href="#" class="ui_button animation-block" target="_blank"><span>Замовити</span></a> 
             </div>
         </div>
     </div>
 </section>
-   <section class="ui_section order-form">
-    <div class="container">
+   <section class="ui_section order-form" id="contacts">
+    <div class="container animation-block">
         <h2 class="order-form__title ui_h2">
         Давайте працювати разом!
         </h2>
@@ -680,7 +680,7 @@
     </script>
     
 </section>
-   <footer class="footer" id="contacts">
+   <footer class="footer">
     <div class="container">
         <div class="footer-column">
             <a href="#header" class="footer-logo">
@@ -697,15 +697,15 @@
             <div class="footer__title">
                 EXOXE™
             </div>
-            <a href="#" class="ui_link">Про екзосоми</a>
-            <a href="#" class="ui_link">Унікальність</a>
-            <a href="#" class="ui_link">Склад</a>
-            <a href="#" class="ui_link">Протокол</a>
+            <a href="#about" class="ui_link">Про екзосоми</a>
+            <a href="#unique" class="ui_link">Унікальність</a>
+            <a href="#flacons" class="ui_link">Склад</a>
+            <a href="#protocol" class="ui_link">Протокол</a>
         </div>
         <div class="footer-column">
-            <a href="#" class="ui_link">Майстер-клас</a>
-            <a href="#" class="ui_link">Замовити</a>
-            <a href="#" class="ui_link">Контакти</a>
+            <a href="#protocol" class="ui_link">Майстер-клас</a>
+            <a href="#order" class="ui_link">Замовити</a>
+            <a href="#contacts" class="ui_link">Контакти</a>
             <a href="#" class="ui_link">Політика конфіденційності</a>
         </div>
         <div class="footer-column">
@@ -760,6 +760,12 @@
         </div>
     </div>
 </footer>
+   <ul class="sticky-footer hidden-desktop"  role="list">
+    <li class="sticky-footer__item scroll-link ui_link" data-scroll=".unique"><a href="#unique">Унікальність</a></li>
+    <li class="sticky-footer__item scroll-link ui_link" data-scroll=".technologie"><a href="#flacons">Склад</a></li>
+    <li class="sticky-footer__item scroll-link ui_link" data-scroll=".protocol"><a href="#protocol">Протокол</a></li>
+    <li class="sticky-footer__item scroll-link ui_link" data-scroll=".order"><a href="#order">Замовити</a></li>
+</ul>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
