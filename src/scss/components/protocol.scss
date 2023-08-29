@@ -71,6 +71,7 @@
         gap: 24px;
         align-items: center;
         width: 100%;
+        margin-top: 20px;
     }
 
     .protocol-button {
@@ -82,9 +83,17 @@
         justify-content: center;
         gap: 1.5 * $base-space;
 
+        svg {
+            transition: all .3s ease-in-out;
+            stroke: $primary-color;
+        }
+
+
         @media(max-width: $tablet-breakpoint) {
             padding: 16px 32px;
             gap: 12px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
          &:hover {
@@ -122,6 +131,10 @@
     @media(max-width: $mobile-breakpoint) {
         .results-list {
             gap: 0;
+        }
+        &__title {
+            padding: 0 16px;
+            margin-bottom: 32px;
         }
     }
 
@@ -225,6 +238,10 @@
     &__condition {
         margin-top: 3 * $base-space;
         font-size: 18px;
+
+        @media(max-width: $tablet-breakpoint) {
+            font-size: 14px;
+        }
     }
 
     .ui_button span {

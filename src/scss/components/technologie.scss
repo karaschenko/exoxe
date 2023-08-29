@@ -156,9 +156,19 @@
             padding-left: 0;
             -webkit-padding-start: 0;
         }
+
+      @media(max-width: $mobile-small-breakpoint) {
+        padding: 16px;
+      }
     }
 
     .flacon-separator {
         align-self: center;
+
+      @media(max-width: $mobile-small-breakpoint) {
+         img {
+            max-width: 48px;
+         }
+      }
     }
 }

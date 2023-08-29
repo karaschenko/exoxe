@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         documentBody.classList.remove('show-mobile-menu');
 
         gsap.to(window, {
-        duration: 0.2,
-        scrollTo: yPosition,
-        onComplete: setActiveClass(link),
+            duration: 0.2,
+            scrollTo: yPosition,
+            onComplete: setActiveClass(link),
         });
     });
     });
@@ -91,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 repeat: -1,
                 yoyo: true,
                 ease: 'power1.inOut',
-                duration: 4,
+                duration: 2,
+                delay: 4,
                 scrollTrigger: {
                     trigger: targetImage,
                     start: 'top 80%',
@@ -99,19 +100,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
          gsap.to(targetImage, {
-                opacity: 0.2,
+                opacity: 0,
                 scale: 0.3,
                 repeat: -1,
                 yoyo: true,
                 rotation: 90,
                 ease: 'power1.inOut',
-                duration: 4,
+                duration: 7,
                 scrollTrigger: {
                     trigger: targetImage,
                     start: 'top 80%',
                 },
         });
     }
+
+
     const whatIsSection = documentQuerySelector = '#about';
     gsap.to(whatIsSection, {
         scrollTrigger: {
@@ -125,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    function appereanceAnimation(element, delay = 0.4) {
+    function appereanceAnimation(element, delay = 0.4, duration = 1) {
         const contentBlocks = document.querySelectorAll(`${element} .animation-block`);
         const trigger = document.querySelectorAll(element);
         
@@ -135,10 +138,10 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.to(block, {
                 opacity: 1,
                 y: 0,
-                duration: 1,
+                duration: duration,
                 delay: animationOrder ? animationOrder * delay : index * delay,
                 scrollTrigger: {
-                    trigger,
+                    trigger: trigger,
                     start: 'top 80%',
                 },
             });
@@ -161,20 +164,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (index === 0) {
                 animation.fromTo(
                     item,
-                    { opacity: 0, x: -100 },
-                    { opacity: 1, x: 0, duration: 1 }
+                    { opacity: 0, x: -150 },
+                    { opacity: 1, x: 0, duration: 0.5 }
                 );
             } else if (index === 1) {
                 animation.fromTo(
                     item,
-                    { opacity: 0, y: 50 },
-                    { opacity: 1, y: 0, duration: 1 }
+                    { opacity: 0, y: 100 },
+                    { opacity: 1, y: 0, duration: 0.5 }
                 );
             } else if (index === 2) {
                 animation.fromTo(
                     item,
-                    { opacity: 0, x: 100 },
-                    { opacity: 1, x: 0, duration: 1 }
+                    { opacity: 0, x: 150 },
+                    { opacity: 1, x: 0, duration: 0.5 }
                 );
             }
         });
@@ -183,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.set(separator, { opacity: 0 });
             gsap.to(separator, {
                 opacity: 1,
-                delay: i * 0.7 + 1,
+                delay: i * 0.5 + 0.7,
                 scrollTrigger: {
                     trigger: statisticList,
                     start: 'top 80%',
@@ -208,31 +211,47 @@ document.addEventListener('DOMContentLoaded', function() {
         const animateImage = uniqueSection.querySelector('.unique-media__animate-image');
         const womanImage = uniqueSection.querySelector('.unique-media__woman-image');
 
-        appereanceAnimation('.unique', 0.5);
+        appereanceAnimation('.unique', 0.8);
 
-        gsap.to(animateImage, {
-            opacity: 1,
-            x: 0,
-            rotation: 60,
-            scale: 0.8,
-            repeat: -1,
-            yoyo: true,
-            ease: 'power1.inOut',
-            duration: 3,
+        let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: uniqueSection,
                 start: 'top 80%',
             },
         });
+
+        tl.set(animateImage, {
+            opacity: 0,
+        })
+            .to(animateImage,
+            {
+                opacity: 1,
+                delay: 1.6,
+                duration: 1,
+            })
+            .from(animateImage, {opacity: 1})
+            .to(animateImage, {
+                opacity: 1,
+                x: 0,
+                rotation: 60,
+                scale: 0.8,
+                repeat: -1,
+                yoyo: true,
+                ease: 'power1.inOut',
+                duration: 3,
+            });
+
+
         gsap.set(womanImage, {
-            opacity: 0, 
-            x: '100%',
+            opacity: 0,
+            x: '25%',
         });
 
         gsap.to(womanImage, {
             opacity: 1,
             x: 0,
             duration: 1,
+            delay: 0.8,
             scrollTrigger: {
                 trigger: uniqueSection,
                 start: 'top 80%',
@@ -290,13 +309,13 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     });
 
-    appereanceAnimation('.what-is__content');
+    appereanceAnimation('.what-is__content', 0.8);
     uniqueAnimation();
     statisticAnimation();
-    appereanceAnimation('.advantages');
-    appereanceAnimation('.technologie');
+    appereanceAnimation('.advantages', 0.8);
+    appereanceAnimation('.technologie', 0.8);
     resultsAnimation();
-    appereanceAnimation('.flacons', 0.3);
+    appereanceAnimation('.flacons', 0.5, 0.5);
     appereanceAnimation('.protocol');
     appereanceAnimation('.order', 0.5);
     appereanceAnimation('.order-form', 0.5);
@@ -304,7 +323,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const phoneInput = document.getElementById('phoneInput');
   const phoneMask = new IMask(phoneInput, {
-      mask: '+{38\\0} 00 000 00 00',
+      mask: '+{38} (000) 000 00 00',
+      lazy: false,
+
   });
 
 });

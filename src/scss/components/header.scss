@@ -37,6 +37,9 @@
         }
     }
 
+    .menu-show {
+        display: flex;
+    }
     .header-nav {
         display: flex;
         margin-left: auto;
@@ -158,6 +161,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        overflow: auto;
 
         .header-menu {
             padding: 0;

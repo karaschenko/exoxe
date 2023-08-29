@@ -304,6 +304,9 @@ select {
   max-width: 100%;
   height: auto;
 }
+.header .menu-show {
+  display: flex;
+}
 .header .header-nav {
   display: flex;
   margin-left: auto;
@@ -407,6 +410,7 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: auto;
   }
   .mobile-menu .header-menu {
     padding: 0;
@@ -853,8 +857,18 @@ select {
   padding-left: 0;
   -webkit-padding-start: 0;
 }
+@media (max-width: 500px) {
+  .flacons .flacons-item {
+    padding: 16px;
+  }
+}
 .flacons .flacon-separator {
   align-self: center;
+}
+@media (max-width: 500px) {
+  .flacons .flacon-separator img {
+    max-width: 48px;
+  }
 }
 
 .protocol {
@@ -933,6 +947,7 @@ select {
     gap: 24px;
     align-items: center;
     width: 100%;
+    margin-top: 20px;
   }
 }
 .protocol-buttons .protocol-button {
@@ -944,10 +959,16 @@ select {
   justify-content: center;
   gap: 12px;
 }
+.protocol-buttons .protocol-button svg {
+  transition: all 0.3s ease-in-out;
+  stroke: #E88597;
+}
 @media (max-width: 1024px) {
   .protocol-buttons .protocol-button {
     padding: 16px 32px;
     gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 .protocol-buttons .protocol-button:hover {
@@ -979,6 +1000,10 @@ select {
 @media (max-width: 768px) {
   .results .results-list {
     gap: 0;
+  }
+  .results__title {
+    padding: 0 16px;
+    margin-bottom: 32px;
   }
 }
 .results-item {
@@ -1077,6 +1102,11 @@ select {
   margin-top: 24px;
   font-size: 18px;
 }
+@media (max-width: 1024px) {
+  .master-class__condition {
+    font-size: 14px;
+  }
+}
 .master-class .ui_button span {
   width: 310px;
   text-align: center;
@@ -1103,6 +1133,12 @@ select {
 .order .order-content__list {
   font-weight: 500;
 }
+@media (max-width: 768px) {
+  .order img {
+    max-height: 300px;
+    margin: 0 auto;
+  }
+}
 .order .ui_button span {
   width: 310px;
   text-align: center;
@@ -1110,6 +1146,11 @@ select {
 .order__title {
   font-weight: 400;
   margin-bottom: 32px;
+}
+@media (max-width: 768px) {
+  .order {
+    background: linear-gradient(0deg, #FFF 35%, rgba(255, 255, 255, 0) 100%), url("../media/order-bg.png"), lightgray 50%/cover no-repeat;
+  }
 }
 
 .order-form {
