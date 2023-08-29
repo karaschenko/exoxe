@@ -3,6 +3,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.scroll-link a');
+    const documentBody = document.querySelector('.ui_body');
 
     navLinks.forEach(link => {
     link.addEventListener('click', event => {
@@ -30,8 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const scrollLinks = document.querySelectorAll('.scroll-link');
 
+
+    let currentSectionId = '';
+
     function getCurrentSection() {
-        let currentSectionId = '';
 
         scrollLinks.forEach(link => {
             const targetSelector = link.dataset.scroll;
@@ -50,11 +53,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', () => {
         const currentSection = getCurrentSection();
+        const stickyFooter = document.querySelector('.sticky-footer');
 
         const activeLink = document.querySelector(`[data-scroll="${currentSection}"] a`);
 
         if (activeLink) {
             setActiveClass(activeLink);
+        }
+        if (currentSection === '.order-form') {
+            stickyFooter.style.display = 'none';
+        } else {
+            stickyFooter.style.display = 'flex';
         }
     });
 
@@ -235,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //video controller
     const video = document.querySelector('.hero-video');
     const muteButton = document.querySelector('.mute-button');
-    const documentBody = document.querySelector('.ui_body');
+    
 
     let isMuted = true;
 
