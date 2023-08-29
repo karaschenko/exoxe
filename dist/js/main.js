@@ -4,19 +4,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.scroll-link a');
     const documentBody = document.querySelector('.ui_body');
 
+
+    let userClickedNav = false;
     navLinks.forEach(link => {
     link.addEventListener('click', event => {
+        userClickedNav = true;
         event.preventDefault();
-
         const targetId = link.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         const yPosition = targetElement.getBoundingClientRect().top - 96 + window.pageYOffset;
         documentBody.classList.remove('show-mobile-menu');
 
         gsap.to(window, {
-            duration: 0.2,
-            scrollTo: yPosition,
-            onComplete: setActiveClass(link),
+        duration: 0.2,
+        scrollTo: yPosition,
+        onComplete: () => {
+            setActiveClass(link);
+            setTimeout(() => {
+                userClickedNav = false;
+            }, 800);
+        }
         });
     });
     });
@@ -31,10 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollLinks = document.querySelectorAll('.scroll-link');
 
 
-    let currentSectionId = '';
+    
 
     function getCurrentSection() {
-
+        let currentSectionId = '';
         scrollLinks.forEach(link => {
             const targetSelector = link.dataset.scroll;
             const targetSection = document.querySelector(targetSelector);
@@ -53,10 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', () => {
         const currentSection = getCurrentSection();
         const stickyFooter = document.querySelector('.sticky-footer');
-
         const activeLink = document.querySelector(`[data-scroll="${currentSection}"] a`);
 
-        if (activeLink) {
+        if (activeLink && !userClickedNav) {
             setActiveClass(activeLink);
         }
         if (currentSection === '.order-form') {
