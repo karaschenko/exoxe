@@ -111,7 +111,7 @@ select {
     display: none !important;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .hidden-tablet {
     display: none !important;
   }
@@ -277,6 +277,7 @@ select {
   z-index: 2;
   line-height: 21.13px;
   padding: 0 32px;
+  width: 100%;
 }
 @media (max-width: 1024px) {
   .header {
@@ -545,6 +546,7 @@ select {
 .unique {
   background: #2F2F33;
   color: #fff;
+  overflow: hidden;
 }
 .unique-content-logo {
   margin-bottom: 64px;
@@ -628,6 +630,7 @@ select {
 .statistic {
   padding: 43px;
   color: #2F2F33;
+  overflow: hidden;
 }
 @media (max-width: 1024px) {
   .statistic {
@@ -668,6 +671,18 @@ select {
   color: #fff;
   background: linear-gradient(90deg, #E88597 7.29%, rgba(232, 133, 151, 0.8) 43.88%, rgba(255, 255, 255, 0) 62%), url("../media/advantages-bg.png") no-repeat bottom;
   background-size: cover;
+}
+@media (min-width: 1024px) and (max-width: 1500px) {
+  .advantages {
+    padding-bottom: 0;
+    background-color: #E88597;
+    background-size: contain;
+  }
+}
+@media (min-width: 1500px) {
+  .advantages .advantages__image {
+    display: none;
+  }
 }
 @media (max-width: 1024px) {
   .advantages {
@@ -1020,7 +1035,7 @@ select {
   bottom: -3px;
   background: #E88597;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1500px) {
   .results-item__title .title__line {
     display: none;
   }

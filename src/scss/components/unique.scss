@@ -6,6 +6,7 @@ $exo-image-height: 304px;
 .unique {
     background: $black-color;
     color: $white-color;
+    overflow: hidden;
 
     &-content {
         &-logo {

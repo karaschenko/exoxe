@@ -26,13 +26,13 @@
 
 }
 
-@media (min-width: $tablet-breakpoint) {
+@media (min-width: 1024px) {
     .hidden-desktop {
         display: none !important;
     }
 }
 
-@media (max-width: $tablet-breakpoint) {
+@media (max-width: 1023px) {
     .hidden-tablet {
         display: none !important;
     }

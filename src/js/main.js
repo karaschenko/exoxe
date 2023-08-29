@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    function appereanceAnimation(element, delay = 0.5) {
+    function appereanceAnimation(element, delay = 0.4) {
         const contentBlocks = document.querySelectorAll(`${element} .animation-block`);
         const trigger = document.querySelectorAll(element);
         
@@ -183,14 +183,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function resultsAnimation() {
+        const resultsItems = document.querySelectorAll('.results-item');
+
+        appereanceAnimation('.results__title');
+
+        resultsItems.forEach((block, index) => {
+            appereanceAnimation(`.results-item-${index + 1}`, index * 0.05);
+        });
+    }
+
 
     function uniqueAnimation() {
         const uniqueSection = document.querySelector('.unique');
         const animateImage = uniqueSection.querySelector('.unique-media__animate-image');
+        const womanImage = uniqueSection.querySelector('.unique-media__woman-image');
 
-        appereanceAnimation('.unique', 0.7)
-
-
+        appereanceAnimation('.unique', 0.5);
 
         gsap.to(animateImage, {
             opacity: 1,
@@ -201,6 +210,20 @@ document.addEventListener('DOMContentLoaded', function() {
             yoyo: true,
             ease: 'power1.inOut',
             duration: 3,
+            scrollTrigger: {
+                trigger: uniqueSection,
+                start: 'top 80%',
+            },
+        });
+        gsap.set(womanImage, {
+            opacity: 0, 
+            x: '100%',
+        });
+
+        gsap.to(womanImage, {
+            opacity: 1,
+            x: 0,
+            duration: 1,
             scrollTrigger: {
                 trigger: uniqueSection,
                 start: 'top 80%',
@@ -256,18 +279,18 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         } 
     })
-});
+    });
 
-  appereanceAnimation('.what-is__content');
-  uniqueAnimation();
-  statisticAnimation();
-  appereanceAnimation('.advantages');
-  appereanceAnimation('.technologie');
-  appereanceAnimation('.results', 0.7);
-  appereanceAnimation('.flacons', 0.3);
-  appereanceAnimation('.protocol');
-  appereanceAnimation('.order', 0.6);
-  appereanceAnimation('.order-form', 0.6);
+    appereanceAnimation('.what-is__content');
+    uniqueAnimation();
+    statisticAnimation();
+    appereanceAnimation('.advantages');
+    appereanceAnimation('.technologie');
+    resultsAnimation();
+    appereanceAnimation('.flacons', 0.3);
+    appereanceAnimation('.protocol');
+    appereanceAnimation('.order', 0.5);
+    appereanceAnimation('.order-form', 0.5);
 
 
   const phoneInput = document.getElementById('phoneInput');

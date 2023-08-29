@@ -1,6 +1,7 @@
 .statistic {
     padding: 43px;
     color: $black-color;
+    overflow: hidden;
 
     @media(max-width: $tablet-breakpoint) {
         padding: 32px 0;
