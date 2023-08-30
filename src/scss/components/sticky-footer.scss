@@ -12,4 +12,22 @@
   padding: 0 16px;
   z-index: 3;
   margin: 0;
+
+  .scroll-link {
+    position: relative;
+
+    &.active::before {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $primary-color;
+
+    }
+  }
 }

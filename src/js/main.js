@@ -30,10 +30,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function setActiveClass(clickedLink) {
-        navLinks.forEach(link => {
-            link.parentNode.classList.remove('active');
-        });
-        clickedLink.parentNode.classList.add('active');
+        const dataScrollValue = clickedLink.parentNode.getAttribute('data-scroll');
+        const elementsWithMatchingDataScroll = document.querySelectorAll(`[data-scroll="${dataScrollValue}"]`);
+        const heroVideo = document.querySelector('.hero');
+        const heroVideoBottom = heroVideo.getBoundingClientRect().bottom - 100 + window.scrollY;
+
+        elementsWithMatchingDataScroll.forEach((item) => {
+            const siblings = Array.from(item.parentNode.children);
+            const footerLinks = document.querySelectorAll('.sticky-footer .scroll-link');
+            siblings.forEach((sibling) => {
+                sibling.classList.remove('active');
+            });
+            footerLinks.forEach((sibling) => {
+                sibling.classList.remove('active');
+            });
+
+            if (window.scrollY > heroVideoBottom) {
+                item.classList.add('active');
+            }
+        })
     }
 
     const scrollLinks = document.querySelectorAll('.scroll-link');
@@ -61,22 +76,18 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', () => {
         const currentSection = getCurrentSection();
         const stickyFooter = document.querySelector('.sticky-footer');
-        const heroVideo = document.querySelector('.hero');
-        const heroVideoBottom = heroVideo.getBoundingClientRect().bottom - 100 + window.scrollY;
         const activeLink = document.querySelector(`[data-scroll="${currentSection}"] a`);
 
         if (activeLink && !userClickedNav) {
             setActiveClass(activeLink);
         }
+
         if (currentSection === '.order-form') {
             stickyFooter.style.display = 'none';
         } else {
             stickyFooter.style.display = 'flex';
         }
-
-        if (window.scrollY < heroVideoBottom) {
-            setActiveClass('');
-        }
+        
     });
 
     function startInfiniteAnimation() {
@@ -103,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 repeat: -1,
                 yoyo: true,
                 ease: 'power1.inOut',
-                duration: 2,
+                duration: 5,
                 delay: 4,
                 scrollTrigger: {
                     trigger: targetImage,
