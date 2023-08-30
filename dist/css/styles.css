@@ -1046,11 +1046,16 @@ select {
 .results-item__title {
   position: relative;
   margin-bottom: 18px;
+  width: 100%;
 }
 @media (max-width: 1024px) {
   .results-item__title {
     margin-bottom: 8px;
   }
+}
+.results-item__title .title__text {
+  position: relative;
+  display: block;
 }
 .results-item__title .title__line {
   position: absolute;

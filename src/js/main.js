@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', () => {
         const currentSection = getCurrentSection();
         const stickyFooter = document.querySelector('.sticky-footer');
+        const heroVideo = document.querySelector('.hero');
+        const heroVideoBottom = heroVideo.getBoundingClientRect().bottom - 100 + window.scrollY;
         const activeLink = document.querySelector(`[data-scroll="${currentSection}"] a`);
 
         if (activeLink && !userClickedNav) {
@@ -70,6 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
             stickyFooter.style.display = 'none';
         } else {
             stickyFooter.style.display = 'flex';
+        }
+
+        if (window.scrollY < heroVideoBottom) {
+            setActiveClass('');
         }
     });
 
@@ -134,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    function appereanceAnimation(element, delay = 0.4, duration = 1) {
+    function appereanceAnimation(element, delay = 0.4, duration = 1, onCompleteCallback) {
         const contentBlocks = document.querySelectorAll(`${element} .animation-block`);
         const trigger = document.querySelectorAll(element);
         
@@ -150,7 +156,66 @@ document.addEventListener('DOMContentLoaded', function() {
                     trigger: trigger,
                     start: 'top 80%',
                 },
+                onComplete: onCompleteCallback,
             });
+        });
+    }
+
+    function resultsAnimation() {
+        function animateResultsItem(item, delay) {
+            const num = item.querySelector('.results-item__num');
+            const line = item.querySelector('.title__line');
+            const title = item.querySelector('.title__text');
+            const text = item.querySelector('.results-item__text');
+
+            const timeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.results-list',
+                    start: 'top 80%',
+                },
+                delay
+            });
+
+            timeline
+                .fromTo(num, { opacity: 0 }, { opacity: 1,})
+                .fromTo(line, { opacity: 0 }, { opacity: 1, duration: 0.25, })
+                .fromTo(title, { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 0.25 })
+                .fromTo(text, { opacity: 0, }, { opacity: 1, duration: 0.25, delay: 0.25} );
+        }
+         const resultsItems = document.querySelectorAll('.results-item');
+
+        gsap.from('.results__title', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.results__title',
+                start: 'top 80%',
+            },
+        });
+        resultsItems.forEach((item, index) => {
+            let delay;
+
+            switch (index) {
+                case 0:
+                case 3:
+                    delay = 1;
+                    break;
+                case 1:
+                case 4:
+                    delay = 2;
+                    break;
+                case 2:
+                case 5:
+                    delay = 3;
+                    break;
+                default:
+                    delay = index * 0.3;
+                    break;
+            }
+            setTimeout(() => {
+                animateResultsItem(item, delay);
+            }) 
         });
     }
 
@@ -200,17 +265,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    function resultsAnimation() {
-        const resultsItems = document.querySelectorAll('.results-item');
-
-        appereanceAnimation('.results__title');
-
-        resultsItems.forEach((block, index) => {
-            appereanceAnimation(`.results-item-${index + 1}`, index * 0.05);
-        });
-    }
-
 
     function uniqueAnimation() {
         const uniqueSection = document.querySelector('.unique');
