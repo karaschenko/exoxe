@@ -32,4 +32,13 @@
         list-style-position: inside;
         padding: 0;
     }
+
+    &__image {
+        display: block;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
 }
