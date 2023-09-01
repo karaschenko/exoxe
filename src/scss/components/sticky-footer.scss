@@ -1,5 +1,5 @@
 .sticky-footer {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -29,5 +29,9 @@
         background: $primary-color;
 
     }
+  }
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    display: flex;
   }
 }

@@ -43,7 +43,8 @@ async function bundleJs() {
 
 function watchFiles() {
   watch('src/scss/**/*.scss', compileSass);
-  watch(['src/index.html', 'src/components/**/*.html'], fileInclude);
+  watch('src/index.html', fileInclude);
+  watch('src/components/**/*.html', fileInclude);
   watch('src/js/**/*.js', bundleJs);
   watch('dist/**/*').on('change', browserSync.reload); // Reload when files change
 }

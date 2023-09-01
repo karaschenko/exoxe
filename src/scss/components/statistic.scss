@@ -5,6 +5,11 @@
 
     @media(max-width: $tablet-breakpoint) {
         padding: 32px 0;
+
+        .container {
+            padding: 0 16px;
+            max-width: 100%;
+        }
     }
 
     @media(max-width: $mobile-breakpoint) {
@@ -17,6 +22,7 @@
         &__item {
             display: flex;
             align-items: center;
+            text-transform: uppercase;
 
             .statistic-number {
                 font-size: 96px;
@@ -28,6 +34,10 @@
                     font-size: 64px;
                     line-height: 72px;
                 }
+            }
+            .statistic-text {
+                max-width: 300px;
+                display: inline-block;
             }
         }
 

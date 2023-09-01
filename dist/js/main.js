@@ -7,35 +7,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let userClickedNav = false;
     navLinks.forEach(link => {
-    link.addEventListener('click', event => {
-        userClickedNav = true;
-        event.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        const yPosition = targetElement.getBoundingClientRect().top - 96 + window.pageYOffset;
-        documentBody.classList.remove('show-mobile-menu');
+        link.addEventListener('click', event => {
+            userClickedNav = true;
+            event.preventDefault();
+            const targetId = link.getAttribute('href');
+            const headerHeight = document.querySelector('#header').offsetHeight;
+            const targetElement = document.querySelector(targetId);
+            const yPosition = targetElement.getBoundingClientRect().top - headerHeight + window.pageYOffset;
+            documentBody.classList.remove('show-mobile-menu');
+            if (!isMuted) {
+                muteVideo();
+            }
 
-        gsap.to(window, {
-        duration: 0.2,
-        scrollTo: yPosition,
-        onComplete: () => {
-            setActiveClass(link);
-            setTimeout(() => {
-                userClickedNav = false;
-            }, 800);
-        }
+            gsap.to(window, {
+                duration: 0.2,
+                scrollTo: yPosition,
+                onStart: () => {
+                    setActiveClass(link);
+                },
+                onComplete: () => {
+                    setTimeout(() => {
+                        userClickedNav = false;
+                    }, 800);
+                }
+            });
         });
-    });
     });
 
     function setActiveClass(clickedLink) {
-        const dataScrollValue = clickedLink.parentNode.getAttribute('data-scroll');
-        const elementsWithMatchingDataScroll = document.querySelectorAll(`[data-scroll="${dataScrollValue}"]`);
+        const headerHeight = document.querySelector('#header').offsetHeight;
+        const regex = /#([^#]+)/;
+        const dataScrollValue = clickedLink.href;
+        const match = dataScrollValue.match(regex);
+        const elementsWithMatchingDataScroll = document.querySelectorAll(`a[href$="${match[0]}"]`);
         const heroVideo = document.querySelector('.hero');
-        const heroVideoBottom = heroVideo.getBoundingClientRect().bottom - 100 + window.scrollY;
+        const heroVideoBottom = heroVideo.getBoundingClientRect().bottom - headerHeight + window.scrollY;
 
         elementsWithMatchingDataScroll.forEach((item) => {
-            const siblings = Array.from(item.parentNode.children);
+            const siblings = Array.from(item.parentNode.parentNode.children);
             const footerLinks = document.querySelectorAll('.sticky-footer .scroll-link');
             siblings.forEach((sibling) => {
                 sibling.classList.remove('active');
@@ -45,22 +54,25 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             if (window.scrollY > heroVideoBottom) {
-                item.classList.add('active');
+                item.parentNode.classList.add('active');
+                if (!isMuted) {
+                    muteVideo();
+                }
             }
         });
     }
 
     const scrollLinks = document.querySelectorAll('.scroll-link');
 
-
-    
-
     function getCurrentSection() {
         let currentSectionId = '';
-        scrollLinks.forEach(link => {
-            const targetSelector = link.dataset.scroll;
-            const targetSection = document.querySelector(targetSelector);
+        const regex = /#([^#]+)/;
 
+        scrollLinks.forEach(link => {
+            const match = link.querySelector('a').href.match(regex);
+            const targetSelector = match[0];
+
+            const targetSection = document.querySelector(targetSelector);
             if (targetSection) {
                 const rect = targetSection.getBoundingClientRect();
                 if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
@@ -75,64 +87,67 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', () => {
         const currentSection = getCurrentSection();
         const stickyFooter = document.querySelector('.sticky-footer');
-        const activeLink = document.querySelector(`[data-scroll="${currentSection}"] a`);
+        const activeLink = document.querySelector(`a[href$="${currentSection}"]`);
 
         if (activeLink && !userClickedNav) {
             setActiveClass(activeLink);
         }
 
-        if (currentSection === '.order-form') {
-            stickyFooter.style.display = 'none';
-        } else {
-            stickyFooter.style.display = 'flex';
+        console.log(currentSection);
+        if (window.innerWidth <= 1024) {
+            if (currentSection === '#contacts') {
+                stickyFooter.style.display = 'none';
+            } else {
+                stickyFooter.style.display = 'flex';
+            }
         }
-        
+
     });
 
     function startInfiniteAnimation() {
         const targetImage = document.querySelector('.animated-exosome');
         const targetText = document.querySelector('.what-is__image-title');
-        const animationTimeline = gsap.timeline({ repeat: -1 });
+        const animationTimeline = gsap.timeline({repeat: -1});
 
         const animationSteps = [
-            { rotation: -90, scale: 0.1, opacity: 0, duration: 2, ease: 'power2.out' },
-            { rotation: 0, scale: 1, opacity: 1, duration: 3, ease: 'power2.out' },
+            {rotation: -90, scale: 0.1, opacity: 0, duration: 2, ease: 'power2.out'},
+            {rotation: 0, scale: 1, opacity: 1, duration: 3, ease: 'power2.out'},
         ];
 
         animationSteps.forEach((step) => {
             animationTimeline.to(targetImage, {
-            ...step,
-            delay: 1,
+                ...step,
+                delay: 1,
             });
         });
 
         gsap.to(targetText, {
-                opacity: 0,
-                y: 50,
-                scale: 0.8,
-                repeat: -1,
-                yoyo: true,
-                ease: 'power1.inOut',
-                duration: 5,
-                delay: 4,
-                scrollTrigger: {
-                    trigger: targetImage,
-                    start: 'top 80%',
-                },
+            opacity: 0,
+            y: 50,
+            scale: 0.8,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut',
+            duration: 5,
+            delay: 4,
+            scrollTrigger: {
+                trigger: targetImage,
+                start: 'top 80%',
+            },
         });
 
-         gsap.to(targetImage, {
-                opacity: 0,
-                scale: 0.3,
-                repeat: -1,
-                yoyo: true,
-                rotation: 90,
-                ease: 'power1.inOut',
-                duration: 7,
-                scrollTrigger: {
-                    trigger: targetImage,
-                    start: 'top 80%',
-                },
+        gsap.to(targetImage, {
+            opacity: 0,
+            scale: 0.3,
+            repeat: -1,
+            yoyo: true,
+            rotation: 90,
+            ease: 'power1.inOut',
+            duration: 7,
+            scrollTrigger: {
+                trigger: targetImage,
+                start: 'top 80%',
+            },
         });
     }
 
@@ -149,14 +164,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-
     function appereanceAnimation(element, delay = 0.4, duration = 1, onCompleteCallback) {
         const contentBlocks = document.querySelectorAll(`${element} .animation-block`);
         const trigger = document.querySelectorAll(element);
-        
+
         contentBlocks.forEach((block, index) => {
             const animationOrder = block.getAttribute('data-order');
-            gsap.set(block, { opacity: 0, y: 50 });
+            gsap.set(block, {opacity: 0, y: 50});
             gsap.to(block, {
                 opacity: 1,
                 y: 0,
@@ -187,12 +201,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             timeline
-                .fromTo(num, { opacity: 0 }, { opacity: 1,})
-                .fromTo(line, { opacity: 0 }, { opacity: 1, duration: 0.25, })
-                .fromTo(title, { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 0.25 })
-                .fromTo(text, { opacity: 0, }, { opacity: 1, duration: 0.25, delay: 0.25} );
+                .fromTo(num, {opacity: 0}, {opacity: 1,})
+                .fromTo(line, {opacity: 0}, {opacity: 1, duration: 0.25,})
+                .fromTo(title, {opacity: 0, x: 300}, {opacity: 1, x: 0, duration: 0.25})
+                .fromTo(text, {opacity: 0,}, {opacity: 1, duration: 0.25, delay: 0.25});
         }
-         const resultsItems = document.querySelectorAll('.results-item');
+
+        const resultsItems = document.querySelectorAll('.results-item');
 
         gsap.from('.results__title', {
             opacity: 0,
@@ -225,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             setTimeout(() => {
                 animateResultsItem(item, delay);
-            }); 
+            });
         });
     }
 
@@ -245,26 +260,26 @@ document.addEventListener('DOMContentLoaded', function() {
             if (index === 0) {
                 animation.fromTo(
                     item,
-                    { opacity: 0, x: -150 },
-                    { opacity: 1, x: 0, duration: 0.5 }
+                    {opacity: 0, x: -150},
+                    {opacity: 1, x: 0, duration: 0.3}
                 );
             } else if (index === 1) {
                 animation.fromTo(
                     item,
-                    { opacity: 0, y: 100 },
-                    { opacity: 1, y: 0, duration: 0.5 }
+                    {opacity: 0, y: 100},
+                    {opacity: 1, y: 0, duration: 0.3}
                 );
             } else if (index === 2) {
                 animation.fromTo(
                     item,
-                    { opacity: 0, x: 150 },
-                    { opacity: 1, x: 0, duration: 0.5 }
+                    {opacity: 0, x: 150},
+                    {opacity: 1, x: 0, duration: 0.3}
                 );
             }
         });
 
         separators.forEach((separator, i) => {
-            gsap.set(separator, { opacity: 0 });
+            gsap.set(separator, {opacity: 0});
             gsap.to(separator, {
                 opacity: 1,
                 delay: i * 0.5 + 0.7,
@@ -294,12 +309,12 @@ document.addEventListener('DOMContentLoaded', function() {
             opacity: 0,
         })
             .to(animateImage,
-            {
-                opacity: 1,
-                delay: 1.6,
-                duration: 1,
-            })
-            .from(animateImage, {opacity: 1})
+                {
+                    opacity: 1,
+                    delay: 1.6,
+                    duration: 1,
+                })
+            .from(animateImage, {opacity: 1,  duration: 0,})
             .to(animateImage, {
                 opacity: 1,
                 x: 0,
@@ -330,53 +345,55 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-  //video controller
-    const video = document.querySelector('.hero-video');
+    //video controller
+    const video = document.querySelector(window.innerWidth < 1024 ? '.hero-video.hidden-desktop': '.hero-video.hidden-tablet');
     const muteButton = document.querySelector('.mute-button');
-    
+
 
     let isMuted = true;
 
-    muteButton.addEventListener('click', function() {
-      isMuted = !isMuted;
-      video.muted = isMuted;
-      
-      if (isMuted) {
-        muteButton.classList.remove('volume-up');
-      } else {
-        muteButton.classList.add('volume-up');
-      }
+    muteButton.addEventListener('click', function () {
+        muteVideo();
     });
+
+    function muteVideo() {
+        isMuted = !isMuted;
+        video.muted = isMuted;
+
+        if (isMuted) {
+            muteButton.classList.add('volume-up');
+        } else {
+            muteButton.classList.remove('volume-up');
+        }
+    }
 
     //mobile controller
     const burgerButton = document.querySelector('.header__menu-switch');
     let showMenu = false;
 
-    burgerButton.addEventListener('click', function() {
-      showMenu = !showMenu;
-      
-      if (showMenu) {
-        documentBody.classList.add('show-mobile-menu');
-      } else {
-       documentBody.classList.remove('show-mobile-menu');
-      }
-    });
+    burgerButton.addEventListener('click', function () {
+        showMenu = !showMenu;
 
-    
+        if (showMenu) {
+            documentBody.classList.add('show-mobile-menu');
+        } else {
+            documentBody.classList.remove('show-mobile-menu');
+        }
+    });
 
 
     const accordionCheckboxes = document.querySelectorAll('.accordion-item input');
 
     accordionCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', function() {
-        if (this.checked) {
-            accordionCheckboxes.forEach((otherCheckbox) => {
-                if (otherCheckbox !== this) {
-                    otherCheckbox.checked = false;
-                }
-            });
-        } 
-    });
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                accordionCheckboxes.forEach((otherCheckbox) => {
+                    if (otherCheckbox !== this) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            }
+        });
     });
 
     appereanceAnimation('.what-is__content', 0.8);
@@ -391,11 +408,11 @@ document.addEventListener('DOMContentLoaded', function() {
     appereanceAnimation('.order-form', 0.5);
 
 
-  const phoneInput = document.getElementById('phoneInput');
-  new IMask(phoneInput, {
-      mask: '+{38} (000) 000 00 00',
-      lazy: false,
+    const phoneInput = document.getElementById('phoneInput');
+    new IMask(phoneInput, {
+        mask: '+{38} (000) 000 00 00',
+        lazy: false,
 
-  });
+    });
 
 });

@@ -283,6 +283,9 @@ select {
   .header {
     padding: 0;
   }
+  .header .container {
+    max-width: 100%;
+  }
 }
 .header .container {
   height: 100%;
@@ -347,13 +350,15 @@ select {
 }
 @media (max-width: 1300px) {
   .header-menu {
-    gap: 12px;
+    gap: 18px;
     font-size: 18px;
   }
 }
 @media (max-width: 1024px) {
   .header-menu {
     align-items: flex-start;
+    gap: 20px;
+    font-size: 18px;
   }
 }
 .header-menu__item {
@@ -371,7 +376,7 @@ select {
   border-radius: 50%;
   background: #E88597;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .header-menu__item.active::before {
     left: -7px;
     bottom: 50%;
@@ -426,6 +431,7 @@ select {
     overflow: auto;
   }
   .mobile-menu .header-menu {
+    margin-top: 20px;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -456,26 +462,41 @@ select {
   position: relative;
   top: -100%;
 }
+@media only screen and (max-width: 1600px) {
+  .hero .mute-button-container {
+    margin: 0 -18px;
+  }
+}
 .hero .mute-button {
   position: absolute;
   cursor: pointer;
   right: 0;
-  top: 100px;
+  top: 56px;
 }
 .hero .mute-button::after {
   content: "";
   position: absolute;
   width: 2px;
-  height: 0;
+  height: 30px;
   background: #fff;
+  opacity: 0;
   rotate: 30deg;
   top: 50%;
   transform: translate(-50%, -50%);
   left: 38%;
-  transition: height, 0.15s ease-out;
+  transition: opacity 0.15s ease-out;
 }
 .hero .mute-button.volume-up::after {
-  height: 30px;
+  opacity: 1;
+}
+@media (max-width: 1024px) {
+  .hero .mute-button {
+    top: 16px;
+    max-width: 40px;
+  }
+  .hero .mute-button::after {
+    height: 18px;
+  }
 }
 
 .what-is {
@@ -487,6 +508,10 @@ select {
 @media (max-width: 1024px) {
   .what-is {
     background: radial-gradient(247.2% 104.88% at 5.14% 100%, #FBC5C9 0%, #E88597 45.96%, #894B52 100%);
+  }
+  .what-is .container {
+    max-width: 100%;
+    padding: 0 16px;
   }
 }
 .what-is::before {
@@ -638,6 +663,14 @@ select {
   position: relative;
   align-self: baseline;
 }
+@media (max-width: 768px) {
+  .unique-media__static {
+    width: 100%;
+  }
+  .unique-media__static img {
+    margin: 0 auto;
+  }
+}
 .unique-media__animate-image {
   width: 284px;
   height: 304px;
@@ -646,6 +679,14 @@ select {
   left: -142px;
 }
 @media (max-width: 1024px) {
+  .unique-media__animate-image {
+    width: 140px;
+    height: 150px;
+    bottom: -70px;
+    left: -50px;
+  }
+}
+@media (max-width: 768px) {
   .unique-media__animate-image {
     width: 140px;
     height: 150px;
@@ -661,9 +702,15 @@ select {
   }
   .unique .container {
     padding: 0;
+    max-width: 100%;
   }
-  .unique .unique-content {
+  .unique .unique-content, .unique .unique-media {
     padding: 0 16px;
+  }
+}
+@media (max-width: 768px) {
+  .unique .unique-media {
+    padding: 0;
   }
 }
 
@@ -675,6 +722,10 @@ select {
 @media (max-width: 1024px) {
   .statistic {
     padding: 32px 0;
+  }
+  .statistic .container {
+    padding: 0 16px;
+    max-width: 100%;
   }
 }
 @media (max-width: 768px) {
@@ -688,6 +739,7 @@ select {
 .statistic-list__item {
   display: flex;
   align-items: center;
+  text-transform: uppercase;
 }
 .statistic-list__item .statistic-number {
   font-size: 96px;
@@ -700,6 +752,10 @@ select {
     font-size: 64px;
     line-height: 72px;
   }
+}
+.statistic-list__item .statistic-text {
+  max-width: 300px;
+  display: inline-block;
 }
 .statistic-list .separator {
   width: 1px;
@@ -1365,7 +1421,7 @@ select {
 }
 
 .sticky-footer {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -1393,4 +1449,9 @@ select {
   height: 5px;
   border-radius: 50%;
   background: #E88597;
+}
+@media only screen and (max-width: 1024px) {
+  .sticky-footer {
+    display: flex;
+  }
 }

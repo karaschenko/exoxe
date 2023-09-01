@@ -6,6 +6,11 @@
 
     @media(max-width: $tablet-breakpoint) {
         background: radial-gradient(247.20% 104.88% at 5.14% 100.00%, #FBC5C9 0%, #E88597 45.96%, #894B52 100%);
+
+        .container {
+            max-width: 100%;
+            padding: 0 16px;
+        }
     }
 
     &::before {

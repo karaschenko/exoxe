@@ -24,27 +24,42 @@
         top: -100%;
     }
 
+    .mute-button-container {
+        @media only screen and (max-width: 1600px) {
+            margin: 0 -18px;
+        }
+    }
     .mute-button {
         position: absolute;
         cursor: pointer;
         right: 0;
-        top: 100px;
+        top: 56px;
 
         &::after {
             content: '';
             position: absolute;
             width: 2px;
-            height: 0;
+            height: 30px;
             background: #fff;
+            opacity: 0;
             rotate: 30deg;
             top: 50%;
             transform: translate(-50%, -50%);
             left: 38%;
-            transition: height, 0.15s ease-out;
+            transition: opacity 0.15s ease-out;
         }
 
         &.volume-up::after {
-            height: 30px;
+            opacity: 1;
+        }
+
+        @media (max-width: $tablet-breakpoint) {
+            top: 16px;
+            max-width: 40px;
+
+            &::after {
+                height: 18px;
+            }
         }
     }
 }
