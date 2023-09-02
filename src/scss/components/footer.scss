@@ -9,6 +9,13 @@
 
     .container {
         justify-content: space-between;
+
+        @media (max-width: $mobile-breakpoint) {
+            flex-flow: row wrap;
+        }
+        @media (max-width: $mobile-small-breakpoint) {
+            flex-flow: column;
+        }
     }
 
     &-column {
@@ -17,6 +24,10 @@
         flex-direction: column;
         gap: 12px;
         justify-content: center;
+
+        &:last-child {
+            justify-content: flex-start;
+        }
     }
     
     

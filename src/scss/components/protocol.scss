@@ -129,6 +129,8 @@
     }
 
     @media(max-width: $mobile-breakpoint) {
+        padding-bottom: 8px;
+
         .results-list {
             gap: 0;
         }
@@ -138,14 +140,24 @@
         }
     }
 
+
     &-item {
         display: flex;
         gap: 27px;
         margin-bottom: 4 * $base-space;
 
+        @media(max-width: 1300px) {
+            min-height: 200px;
+        }
         @media(max-width: $tablet-breakpoint) {
             gap: 24px;
             margin-bottom: 16px;
+            min-height: 170px;
+        }
+        @media(max-width: $mobile-breakpoint) {
+            min-height: auto;
+            align-items: center;
+            margin-bottom: 24px;
         }
 
         &__num {
@@ -172,6 +184,9 @@
                 font-size: 64px;
                 line-height: 72;
             }
+            @media(max-width: $mobile-breakpoint) {
+                margin-top: 0;
+            }
 
         }
 
@@ -197,7 +212,7 @@
                 bottom: -3px;
                 background:  $primary-color;
 
-                @media(max-width: 1500px) {
+                @media(max-width: 1300px) {
                     display: none;
                 }
 
@@ -235,6 +250,14 @@
         align-items: center;
     }
 
+    &__title {
+        max-width: 470px;
+
+        @media(max-width: $mobile-breakpoint) {
+            max-width: 100%;
+        }
+    }
+
     .col-6 {
         display: flex;
         flex-direction: column;
@@ -250,8 +273,16 @@
         }
     }
 
-    .ui_button span {
-        width: 310px;
-        text-align: center;
+    .ui_button {
+
+        @media(max-width: $mobile-breakpoint) {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        span {
+            width: 310px;
+            text-align: center;
+        }
     }
 }

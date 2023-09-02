@@ -2,30 +2,38 @@
     color: $white-color;
     background: linear-gradient(90deg, #E88597 7.29%, rgba(232, 133, 151, 0.8) 43.88%, rgba(255, 255, 255, 0) 62%), url("../media/advantages-bg.png") no-repeat bottom;
     background-size: cover;
+    padding-top: 0;
 
     @media(min-width: $tablet-breakpoint) and (max-width: 1500px) {
-        padding-bottom: 0;
-        background-color: $primary-color;
-        background-size: contain;
-    }
-
-    @media(min-width: 1500px) {
-        .advantages__image {
-            display: none;
-        }
+        background: linear-gradient(90deg, #E88597 7.29%, rgba(232, 133, 151, 0.8) 43.88%, rgba(255, 255, 255, 0) 62%), url("../media/advantages-bg.png") no-repeat 78% 0;
+        background-size: auto 100%;
     }
 
     @media(max-width: $tablet-breakpoint) {
         background: $primary-color;
         padding-bottom: 0;
+
+        .col-6 {
+            width: 100%;
+        }
     }
 
 
+    .container {
+        padding-top: 96px;
+
+        @media(max-width: $tablet-breakpoint) {
+            padding-top: 32px;
+        }
+    }
+
     &__title {
         margin-bottom: 5 * $base-space;
+        max-width: 300px;
 
         @media(max-width: $tablet-breakpoint) {
             margin-bottom: 32px;
+            max-width: 100%;
         }
     }
     &-list {
@@ -35,10 +43,14 @@
 
     &__image {
         display: block;
+        height: 330px;
+        width: 100%;
+        background: url("../media/advantages-bg_cr2.png") no-repeat 0 30%;
+        background-size: cover;
 
-        img {
-            display: block;
-            width: 100%;
+        @media(max-width: $mobile-breakpoint) {
+            background: url("../media/advantages-bg_cr2.png") no-repeat 90%;
+            background-size: cover;
         }
     }
 }

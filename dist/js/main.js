@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.to(window, {
                 duration: 0.2,
                 scrollTo: yPosition,
+                overwrite: true,
                 onStart: () => {
                     setActiveClass(link);
                 },
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function setActiveClass(clickedLink) {
-        const headerHeight = document.querySelector('#header').offsetHeight;
+        const headerHeight = document.querySelector('#header').offsetHeight - 4;
         const regex = /#([^#]+)/;
         const dataScrollValue = clickedLink.href;
         const match = dataScrollValue.match(regex);
@@ -84,7 +85,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return currentSectionId;
     }
 
+    let lastScrollTop = 0;
+    let isDownScroll = false;
+
     window.addEventListener('scroll', () => {
+        // get scroll direction
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > lastScrollTop) {
+            isDownScroll = true;
+        } else if (st < lastScrollTop) {
+            isDownScroll = false;
+        }
+        lastScrollTop = st <= 0 ? 0 : st;
+
+
+        // active menu section
         const currentSection = getCurrentSection();
         const stickyFooter = document.querySelector('.sticky-footer');
         const activeLink = document.querySelector(`a[href$="${currentSection}"]`);
@@ -93,9 +108,44 @@ document.addEventListener('DOMContentLoaded', function() {
             setActiveClass(activeLink);
         }
 
-        console.log(currentSection);
-        if (window.innerWidth <= 1024) {
-            if (currentSection === '#contacts') {
+
+        if (window.innerWidth < 768) {
+            const buttonOrder = document.querySelector('#order .ui_button');
+            const buttonVideo = document.querySelector('.master-class .ui_button');
+            const buttonContacts = document.querySelector('#contacts #submitBtn');
+            const footer = document.querySelector('.footer');
+            const isButtonVideoVisible = checkVisible(buttonVideo);
+            const isButtonOrderVisible = checkVisible(buttonOrder);
+            const isButtonContactsVisible = checkVisible(buttonContacts);
+            const isFooterVisible = checkVisible(footer);
+
+
+            // downscroll to the order section if 2 buttons are visible at the same time
+            if (!userClickedNav && isDownScroll && isButtonOrderVisible && isButtonVideoVisible) {
+                const targetElement = document.querySelector(currentSection);
+                const headerHeight = document.querySelector('#header').offsetHeight;
+                const yPosition = targetElement.getBoundingClientRect().top - headerHeight + window.pageYOffset;
+
+                gsap.to(window, {
+                    scrollTo: yPosition,
+                    duration: 0.5,
+                    overwrite: true,
+
+                });
+            } else if (!userClickedNav && isDownScroll && isButtonOrderVisible && isButtonContactsVisible) {
+                const targetElement = document.querySelector('#contacts');
+                const headerHeight = document.querySelector('#header').offsetHeight;
+                const yPosition = targetElement.getBoundingClientRect().top - headerHeight + window.pageYOffset;
+
+                gsap.to(window, {
+                    scrollTo: yPosition,
+                    duration: 0.5,
+                    overwrite: true,
+                });
+            }
+
+            // hide footer sticky menu
+            if (isFooterVisible) {
                 stickyFooter.style.display = 'none';
             } else {
                 stickyFooter.style.display = 'flex';
@@ -103,6 +153,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
     });
+
+    function checkVisible(elm) {
+        const headerHeight = document.querySelector('#header').offsetHeight;
+        const rect = elm.getBoundingClientRect();
+
+        const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        return !(rect.bottom < headerHeight || rect.top - viewHeight >= 0);
+    }
 
     function startInfiniteAnimation() {
         const targetImage = document.querySelector('.animated-exosome');
@@ -203,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
             timeline
                 .fromTo(num, {opacity: 0}, {opacity: 1,})
                 .fromTo(line, {opacity: 0}, {opacity: 1, duration: 0.25,})
-                .fromTo(title, {opacity: 0, x: 300}, {opacity: 1, x: 0, duration: 0.25})
+                .fromTo(title, {opacity: 0, x: 300}, {opacity: 1, x: 0, duration: 0.25,  delay: 0.25})
                 .fromTo(text, {opacity: 0,}, {opacity: 1, duration: 0.25, delay: 0.25});
         }
 
@@ -221,22 +279,42 @@ document.addEventListener('DOMContentLoaded', function() {
         resultsItems.forEach((item, index) => {
             let delay;
 
-            switch (index) {
-                case 0:
-                case 3:
-                    delay = 1;
-                    break;
-                case 1:
-                case 4:
-                    delay = 2;
-                    break;
-                case 2:
-                case 5:
-                    delay = 3;
-                    break;
-                default:
-                    delay = index * 0.3;
-                    break;
+            if (window.innerWidth <= 768) {
+                switch (index) {
+                    case 0:
+                    case 1:
+                        delay = 1;
+                        break;
+                    case 2:
+                    case 3:
+                        delay = 2;
+                        break;
+                    case 4:
+                    case 5:
+                        delay = 3;
+                        break;
+                    default:
+                        delay = index * 0.3;
+                        break;
+                }
+            } else {
+                switch (index) {
+                    case 0:
+                    case 3:
+                        delay = 1;
+                        break;
+                    case 1:
+                    case 4:
+                        delay = 2;
+                        break;
+                    case 2:
+                    case 5:
+                        delay = 3;
+                        break;
+                    default:
+                        delay = index * 0.3;
+                        break;
+                }
             }
             setTimeout(() => {
                 animateResultsItem(item, delay);

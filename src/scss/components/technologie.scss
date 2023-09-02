@@ -27,7 +27,8 @@
             position: absolute;
             left: 0;
             width: $base-space;
-            height: calc(100% - 32px);
+            height: 100%;
+            top: 0;
             background: $primary-color;
 
             @media(max-width: $tablet-breakpoint) {
@@ -143,7 +144,7 @@
         }
 
         .flacon-item__desc {
-            margin-bottom: 7 * $base-space;
+            margin-bottom: 5 * $base-space;
             font-weight: 700;
 
             @media(max-width: $tablet-breakpoint) {
