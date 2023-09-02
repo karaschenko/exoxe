@@ -166,47 +166,73 @@ document.addEventListener('DOMContentLoaded', function() {
     function startInfiniteAnimation() {
         const targetImage = document.querySelector('.animated-exosome');
         const targetText = document.querySelector('.what-is__image-title');
-        const animationTimeline = gsap.timeline({repeat: -1});
 
-        const animationSteps = [
-            {rotation: -90, scale: 0.1, opacity: 0, duration: 2, ease: 'power2.out'},
-            {rotation: 0, scale: 1, opacity: 1, duration: 3, ease: 'power2.out'},
-        ];
-
-        animationSteps.forEach((step) => {
-            animationTimeline.to(targetImage, {
-                ...step,
-                delay: 1,
-            });
+        const tl = gsap.timeline({
+            repeat: -1,
+            scrollTrigger: {
+                trigger: targetImage,
+                start: 'top 80%',
+            }
+        });
+        const t2 = gsap.timeline({
+            repeat: -1,
+            scrollTrigger: {
+                trigger: targetImage,
+                start: 'top 80%',
+            }
         });
 
-        gsap.to(targetText, {
+        tl.from(targetImage, {
+            rotation: 0,
+            scale: 1,
+            opacity: 1,
+            delay: 1,
+            yoyo: true,
+        })
+        .to(targetImage, {
+            rotation: -90,
+            scale: 0.1,
+            opacity: 0,
+            duration: 7,
+            yoyo: true,
+            ease: 'power1.in'
+        })
+        .to(targetImage, {
+            rotation: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 5,
+            delay: 0.5,
+            yoyo: true,
+            ease: 'power1.out'
+        });
+
+        t2.from(targetText, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            delay: 6,
+            yoyo: true,
+        })
+        .to(targetText, {
             opacity: 0,
             y: 50,
             scale: 0.8,
-            repeat: -1,
+            duration: 2,
             yoyo: true,
-            ease: 'power1.inOut',
-            duration: 5,
-            delay: 4,
-            scrollTrigger: {
-                trigger: targetImage,
-                start: 'top 80%',
-            },
-        });
-
-        gsap.to(targetImage, {
-            opacity: 0,
-            scale: 0.3,
-            repeat: -1,
+        })
+        .to(targetText, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            delay: 1,
+            duration: 2.5,
             yoyo: true,
-            rotation: 90,
-            ease: 'power1.inOut',
-            duration: 7,
-            scrollTrigger: {
-                trigger: targetImage,
-                start: 'top 80%',
-            },
+        })
+        .to(targetText, {
+            delay: 1.5,
+            scale: 1,
+            yoyo: true,
         });
     }
 
@@ -218,7 +244,6 @@ document.addEventListener('DOMContentLoaded', function() {
             start: 'top center',
             end: 'bottom center',
             toggleActions: 'play none none reverse',
-            onEnter: () => startInfiniteAnimation(),
         },
     });
 
@@ -476,6 +501,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     appereanceAnimation('.what-is__content', 0.8);
+    startInfiniteAnimation();
     uniqueAnimation();
     statisticAnimation();
     appereanceAnimation('.advantages', 0.8);
