@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         scrollLinks.forEach(link => {
             const match = link.querySelector('a').href.match(regex);
-            const targetSelector = match[0];
+            const targetSelector = match ? match[0] : null;
 
             const targetSection = document.querySelector(targetSelector);
             if (targetSection) {
